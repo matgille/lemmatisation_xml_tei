@@ -7,7 +7,7 @@ Ce script permet l'annotation grammaticale d'une source XML conforme TEI tout en
 
 `python3 lemmatisation.py fichier langue`
 
-Seuls le latin et le castillan sont supportés pour le moment. 
+Seuls le latin médiéval et le castillan médiéval sont supportés pour le moment. 
 
 ## Projets similaires
 Ce projet est fortement inspiré du projet [Falcon](https://github.com/CondorCompPhil/falcon) qui vise déjà
