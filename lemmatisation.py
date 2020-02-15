@@ -1,0 +1,190 @@
+import subprocess
+import sys
+import string
+import re
+import random
+from lxml import etree
+import xml.etree.ElementTree as ET
+import os
+
+fichier = sys.argv[1]
+nom_fichier = os.path.basename(fichier)
+argument = sys.argv[2]
+moteur_xslt = "saxon9he.jar"
+if argument == "--latin":
+    langue = "latin"
+else:
+    langue = "castillan"
+
+
+def tokenisation(moteur_xslt, nom_fichier):
+    subprocess.run(["java", "-jar", moteur_xslt, "-xi:on", fichier,
+                    "xsl/tokenisation.xsl"])
+    fichier_tokenise = "fichier_tokenise/%s" % nom_fichier
+    ajout_xml_id(fichier_tokenise)
+    subprocess.run(["java", "-jar", moteur_xslt, "-xi:on", fichier_tokenise,
+                    "xsl/regularisation.xsl"])
+    print("Tokénisation et régularisation du corpus pour alignement ✓")
+
+
+def generateur_lettre_initiale(size=1, chars=string.ascii_lowercase):  # éviter les nombres en premier caractère de
+    # l'@xml:id (interdit)
+    return ''.join(random.choice(chars) for _ in range(size))
+
+
+def generateur_id(size=6, chars=string.ascii_uppercase + string.ascii_lowercase + string.digits):
+    return generateur_lettre_initiale() + ''.join(random.choice(chars) for _ in range(size))
+
+
+def ajout_xml_id(fichier):
+    """
+    Création des xml:id pour chaque token.
+    :param fichier_entree: le fichier à xmlidiser
+    :return: un fichier où chaque token a un @xml:id
+    """
+    tei = {'tei': 'http://www.tei-c.org/ns/1.0'}
+    f = etree.parse(fichier)
+    root = f.getroot()
+    tokens = root.xpath("//tei:w", namespaces=tei)
+    for w in tokens:
+        w.set("{http://www.w3.org/XML/1998/namespace}id", generateur_id())
+    sortie_xml = open(fichier, "w+")
+    string = etree.tostring(root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode('utf8')
+    sortie_xml.write(str(string))
+    sortie_xml.close()
+
+
+def lemmatisation(fichier, moteur_xslt, langue):
+    """
+    Lemmatisation du fichier XML et réinjection dans le document xml originel.
+    :param fichier: le fichier à lemmatiser
+    :param moteur_xslt: le moteur de transformation à utiliser
+    :param langue: la langue du fichier
+    :return: retourne un fichier lemmatisé
+    """
+    fichier_sans_extension = os.path.splitext(fichier)[0]
+    fichier_xsl = "xsl/transformation_freeling.xsl"
+    chemin_vers_fichier = "fichier_tokenise_regularise/" + str(fichier)
+    fichier_entree_txt = '../fichier_tokenise_regularise/txt/' + fichier_sans_extension + '.txt'
+    param_sortie = "sortie=" + fichier_entree_txt
+    subprocess.run(["java", "-jar", moteur_xslt, chemin_vers_fichier, fichier_xsl, param_sortie])
+    if langue == "castillan":
+        fichier_lemmatise = 'fichier_tokenise_regularise/txt/' + fichier_sans_extension + '_lemmatise' + '.txt'
+        cmd_sh = ["sh", "analyze.sh", fichier_entree_txt,
+                  fichier_lemmatise]  # je dois passer par un script externe car un subprocess tourne dans le vide,
+        # pas trouvé pourquoi
+        subprocess.run(cmd_sh)  # analyze est dans /usr/bin
+        maliste = txt_to_liste(fichier_lemmatise)
+        parser = etree.XMLParser(load_dtd=True,
+                                 resolve_entities=True)  # inutile car les entités ont déjà été résolues
+        # auparavant normalement, mais au cas où.
+        fichier_tokenise = "fichier_tokenise_regularise/" + fichier
+        f = etree.parse(fichier_tokenise, parser=parser)
+        root = f.getroot()
+        tei = {'tei': 'http://www.tei-c.org/ns/1.0'}
+        groupe_words = "//tei:w"
+        tokens = root.xpath(groupe_words, namespaces=tei)
+        nombre_mots = int(root.xpath("count(//tei:w)", namespaces=tei))
+        nombre_pc = int(root.xpath("count(//tei:pc)", namespaces=tei))
+        nombre_tokens = nombre_mots + nombre_pc
+        fichier_lemmatise = fichier_tokenise
+        for mot in tokens:
+            nombre_mots_precedents = int(mot.xpath("count(preceding::tei:w) + 1", namespaces=tei))
+            nombre_ponctuation_precedente = int(mot.xpath("count(preceding::tei:pc) + 1", namespaces=tei))
+            position_absolue_element = nombre_mots_precedents + nombre_ponctuation_precedente  # attention à
+            # enlever 1 quand on cherche dans la liste
+            if position_absolue_element % round(nombre_tokens / 20) == 0:
+                print('Réinjection dans le xml: ' + str(
+                    round(position_absolue_element / nombre_tokens * 100)) + '%',
+                      end="\r")
+            liste_correcte = maliste[position_absolue_element - 2]  # Ça marche bien si la lemmatisation se fait
+            # sans retokenisation. Pour l'instant, ça bloque avec les chiffre (ochenta mill est fusionné). Voir
+            # avec les devs de Freeling.
+            lemme_position = liste_correcte[1]
+            pos_position = liste_correcte[2]
+            mot.set("lemma", lemme_position)
+            mot.set("pos", pos_position)
+        sortie_xml = open(fichier_lemmatise, "w+")
+        string = etree.tostring(root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode('utf8')
+        sortie_xml.write(str(string))
+        sortie_xml.close()
+
+    elif langue == "latin":
+        modele_latin = "model.tar"
+        cmd = "pie tag <%s,lemma,pos,Person,Numb,Tense,Case,Mood> %s" % (
+            modele_latin, fichier_entree_txt)
+        subprocess.run(cmd.split())
+        fichier_seul = os.path.splitext(fichier_entree_txt)[0]
+        fichier_lemmatise = str(fichier_seul) + "-pie.txt"
+        maliste = txt_to_liste(fichier_lemmatise)
+        # Nettoyage de la liste
+        maliste.pop(0)  # on supprime les titres de colonnes
+
+        parser = etree.XMLParser(load_dtd=True,
+                                 resolve_entities=True)  # inutile car les entités ont déjà été résolues
+        # auparavant normalement, mais au cas où.
+        fichier_tokenise = "fichier_tokenise_regularise/" + fichier
+        f = etree.parse(fichier_tokenise, parser=parser)
+        root = f.getroot()
+        tei = {'tei': 'http://www.tei-c.org/ns/1.0'}
+        groupe_words = "//tei:w"
+        tokens = root.xpath(groupe_words, namespaces=tei)
+        nombre_mots = int(root.xpath("count(//tei:w)", namespaces=tei))
+        nombre_pc = int(root.xpath("count(//tei:pc)", namespaces=tei))
+        nombre_tokens = nombre_mots + nombre_pc
+        fichier_lemmatise = fichier_tokenise
+        for mot in tokens:
+            nombre_mots_precedents = int(mot.xpath("count(preceding::tei:w) + 1", namespaces=tei))
+            nombre_ponctuation_precedente = int(
+                mot.xpath("count(preceding::tei:pc) + 1", namespaces=tei))
+            position_absolue_element = nombre_mots_precedents + nombre_ponctuation_precedente  # attention à
+            # enlever 1 quand on cherche dans la liste
+            if position_absolue_element % round(nombre_tokens / 20) == 0:
+                print('Réinjection dans le xml: ' + str(
+                    round(position_absolue_element / nombre_tokens * 100)) + '%',
+                      end="\r")
+            liste_correcte = maliste[position_absolue_element - 2]
+            cas = liste_correcte[1]
+            mode = liste_correcte[2]
+            number = liste_correcte[3]
+            person = liste_correcte[4]
+            temps = liste_correcte[5]
+            lemme = liste_correcte[6]
+            pos = liste_correcte[7]
+            # on nettoie la morphologie
+            morph = "CAS=%s|MODE=%s|NOMB.=%s|PERS.=%s|TEMPS=%s" % (cas, mode, number, person, temps)
+            morph = re.sub("\|.*?_(?=\|)\|", "|", morph) # https://stackoverflow.com/questions/8703017/remove-sub-string-by
+            morph = re.sub("\|((?!\|).)*?_$", "", morph)
+            morph = re.sub("\|.*?_(?=\|)\|", "|", morph)
+            morph = re.sub(".*?_(?=\|)\|", "", morph)
+            morph = re.sub("NOMB\.=_", "", morph)
+            # -using-python
+            mot.set("lemma", lemme)
+            mot.set("pos", pos)
+            if morph:
+                mot.set("morph", morph)
+        sortie_xml = open(fichier_lemmatise, "w+")
+        a_ecrire = etree.tostring(root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode(
+            'utf8')
+        sortie_xml.write(str(a_ecrire))
+        sortie_xml.close()
+
+
+def txt_to_liste(filename):
+    """
+    Transforme le fichier txt produit par Freeling ou pie en liste de listes pour processage ultérieur.
+    :param filename: le nom du fichier txt à transformer
+    :return: une liste de listes: pour chaque forme, les différentes analyses
+    """
+    maliste = []
+    fichier = open(filename, 'r')
+    for line in fichier.readlines():
+        if not re.match(r'^\s*$',
+                        line):  # https://stackoverflow.com/a/3711884 élimination des lignes vides (séparateur de phrase)
+            resultat = re.split(r'\s+', line)
+            maliste.append(resultat)
+    return maliste
+
+
+tokenisation(moteur_xslt, nom_fichier)
+lemmatisation(nom_fichier, moteur_xslt, langue)
