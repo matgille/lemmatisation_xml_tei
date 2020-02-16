@@ -23,7 +23,7 @@ Et voilà !
 Seuls le latin médiéval et le castillan médiéval sont supportés pour le moment. 
 
 
-### Test
+## Test
 Le script peut être testé à l'aide du fichier présent dans test/. Il s'agit d'un texte latin médiéval (d'une édition de 
 1605):
 `python3 lemmatisation.py test/Rome_W.xml --latin` 
