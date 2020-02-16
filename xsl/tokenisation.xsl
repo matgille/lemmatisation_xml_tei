@@ -31,8 +31,7 @@
 
 
 
-    <xsl:template
-        match="tei:TEI[@type = 'transcription'][not(descendant::tei:text[@xml:lang = 'la'])]">
+    <xsl:template match="tei:TEI">
         <xsl:element name="TEI" namespace="http://www.tei-c.org/ns/1.0">
             <xsl:attribute name="xml:id" select="@xml:id"/>
             <xsl:apply-templates/>
@@ -99,22 +98,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
-    <!--
-    <xsl:template match="tei:anchor[not(substring(following-sibling::text()[1], 1) = ' ')]">
-        <xsl:element name="w" namespace="http://www.tei-c.org/ns/1.0">
-            <xsl:value-of select="cw:substring-after-last(preceding-sibling::text()[1], ' ')"/>
-            <xsl:if test="preceding-sibling::*[1][self::tei:lb]">
-                <xsl:copy-of select="preceding-sibling::*[1][self::tei:lb]"/>
-            </xsl:if>
-            <xsl:copy-of select="."/>
-            <xsl:if test="following-sibling::*[1][self::tei:lb]">
-                <xsl:copy-of select="following-sibling::*[1][self::tei:lb]"/>
-            </xsl:if>
-            <xsl:value-of select="substring-before(following-sibling::text()[1], ' ')"/>
-        </xsl:element>
-    </xsl:template>
--->
-
+  
     <!--Ici commencent les problèmes d'overlapping-->
     <xsl:template match="tei:hi[@rend = 'souligne' or @rend = 'rubrique']">
         <xsl:element name="hi" namespace="http://www.tei-c.org/ns/1.0">
@@ -229,11 +213,10 @@
 
 
     <xsl:template match="/">
-            <xsl:result-document href="fichier_tokenise/{$nom_fichier}">
-                <xsl:apply-templates
-                    select="$ResultatTroisiemePasse/tei:TEI"
-                    mode="quatriemePasse" xpath-default-namespace="tei"/>
-            </xsl:result-document>
+        <xsl:result-document href="fichier_tokenise/{$nom_fichier}">
+            <xsl:apply-templates select="$ResultatTroisiemePasse/tei:TEI" mode="quatriemePasse"
+                xpath-default-namespace="tei"/>
+        </xsl:result-document>
     </xsl:template>
 
 
