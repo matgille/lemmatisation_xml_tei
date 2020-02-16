@@ -8,6 +8,9 @@
     <!--Méthode suivie: sur suggestion de Marjorie Burghart, le "multi-pass" https://stackoverflow.com/a/8215981-->
     <!--Première Passe-->
     <!--Il serait probablement plus simple de passer par du python pour faire ça-->
+
+    <xsl:param name="nom_fichier"/>
+
     <xsl:template match="@* | node()">
         <xsl:copy copy-namespaces="yes">
             <xsl:apply-templates select="@* | node()"/>
@@ -226,15 +229,11 @@
 
 
     <xsl:template match="/">
-        <xsl:for-each
-            select="//tei:TEI[@type = 'transcription'][not(descendant::tei:text[@xml:lang = 'la'])]">
-            <xsl:variable name="nom_fichier" select="@xml:id"/>
-            <xsl:result-document href="fichier_tokenise/{$nom_fichier}.xml">
+            <xsl:result-document href="fichier_tokenise/{$nom_fichier}">
                 <xsl:apply-templates
-                    select="$ResultatTroisiemePasse//tei:TEI[@xml:id = $nom_fichier]"
+                    select="$ResultatTroisiemePasse/tei:TEI"
                     mode="quatriemePasse" xpath-default-namespace="tei"/>
             </xsl:result-document>
-        </xsl:for-each>
     </xsl:template>
 
 

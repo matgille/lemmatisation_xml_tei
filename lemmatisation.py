@@ -25,8 +25,10 @@ def tokenisation(moteur_xslt, nom_fichier):
     :param nom_fichier: le nom du fichier seul.
     :return: un fichier régularisé document.xml tokénisé et le fichier original tokénisé.
     """
+    print("Tokénisation et régularisation du fichier...")
+    param = "nom_fichier=%s" % nom_fichier
     subprocess.run(["java", "-jar", moteur_xslt, "-xi:on", fichier,
-                    "xsl/tokenisation.xsl"])
+                    "xsl/tokenisation.xsl", param])
     fichier_tokenise = "fichier_tokenise/%s" % nom_fichier
     ajout_xml_id(fichier_tokenise)
     subprocess.run(["java", "-jar", moteur_xslt, "-xi:on", fichier_tokenise,
@@ -202,5 +204,5 @@ def production_doc_final(fichier):
 
 
 tokenisation(moteur_xslt, nom_fichier)
-lemmatisation(nom_fichier, moteur_xslt, langue)
-production_doc_final("fichier_tokenise/%s" % nom_fichier)
+#lemmatisation(nom_fichier, moteur_xslt, langue)
+#production_doc_final("fichier_tokenise/%s" % nom_fichier)
