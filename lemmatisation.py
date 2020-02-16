@@ -18,6 +18,13 @@ else:
 
 
 def tokenisation(moteur_xslt, nom_fichier):
+    """
+    La régularisation signifie la suppression des noeuds non textuels à l'intérieur des tei:w (pb, cb, etc)
+    et l'impression des noeuds textuels à l'intérieurs d'éléments (hi, etc)
+    :param moteur_xslt: chemin vers saxon
+    :param nom_fichier: le nom du fichier seul.
+    :return: un fichier régularisé document.xml tokénisé et le fichier original tokénisé.
+    """
     subprocess.run(["java", "-jar", moteur_xslt, "-xi:on", fichier,
                     "xsl/tokenisation.xsl"])
     fichier_tokenise = "fichier_tokenise/%s" % nom_fichier
@@ -63,7 +70,7 @@ def lemmatisation(fichier, moteur_xslt, langue):
     :return: retourne un fichier lemmatisé
     """
     fichier_sans_extension = os.path.splitext(fichier)[0]
-    fichier_xsl = "xsl/transformation_freeling.xsl"
+    fichier_xsl = "xsl/transformation_pre_lemmatisation.xsl"
     chemin_vers_fichier = "fichier_tokenise_regularise/" + str(fichier)
     fichier_entree_txt = 'fichier_tokenise_regularise/txt/' + fichier_sans_extension + '.txt'
     param_sortie = "sortie=" + fichier_entree_txt
@@ -144,7 +151,7 @@ def lemmatisation(fichier, moteur_xslt, langue):
             temps = liste_correcte[5]
             lemme = liste_correcte[6]
             pos = liste_correcte[7]
-            # on nettoie la morphologie
+            # on nettoie la morphologie pour supprimer les entrées vides
             morph = "CAS=%s|MODE=%s|NOMB.=%s|PERS.=%s|TEMPS=%s" % (cas, mode, number, person, temps)
             morph = re.sub("((?!\|).)*?_(?=\|)", "",morph) # on supprime les traits non renseignés du milieu
             morph = re.sub("^\|*", "", morph) # on supprime les pipes qui commencent la valeur
@@ -181,6 +188,12 @@ def txt_to_liste(filename):
 
 
 def production_doc_final(fichier):
+    """
+    Production du document final: on compare les fichiers régularisés et non régularisés pour remettre
+    les annotations dans le fichier non régularisé.
+    :param fichier: le nom du fichier sans sa base
+    :return: le fichier final lemmatisé
+    """
     print("Injection dans le XML...")
     param = "nom_fichier=" + nom_fichier
     commande = "java -jar %s -xi:on %s xsl/doc_final.xsl %s" % (moteur_xslt, fichier, param)
