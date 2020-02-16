@@ -16,6 +16,13 @@ Le script peut être testé à l'aide du fichier présent dans test/. Il s'agit 
 1605):
 `python3 lemmatisation.py test/Rome_W.xml --latin` 
 
+## *Caveat*
+
+La tokénisation est ici propre au castillan médiéval, et fonctionne avec le latin; pour d'autres langues, il faudra probablement 
+écrire des règles différentes. En ce qui concerne les éléments à prendre en compte lors de cette tokénisation (tei:hi qui peuvent couper un mot par exemple), les règles portent
+sur mon propre corpus et devront aussi être modifiées. Ces règles n'affectent pas le fonctionnement du script sur
+une transcription a minima (structure par exemple). 
+
 ## Projets similaires
 Ce projet est fortement inspiré du projet [Falcon](https://github.com/CondorCompPhil/falcon), notamment la possibilité
 de lemmatiser avec plusieurs outils, freeling ou pie. 
