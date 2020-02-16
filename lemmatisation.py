@@ -204,5 +204,5 @@ def production_doc_final(fichier):
 
 
 tokenisation(moteur_xslt, nom_fichier)
-#lemmatisation(nom_fichier, moteur_xslt, langue)
-#production_doc_final("fichier_tokenise/%s" % nom_fichier)
+lemmatisation(nom_fichier, moteur_xslt, langue)
+production_doc_final("fichier_tokenise/%s" % nom_fichier)
