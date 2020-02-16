@@ -24,7 +24,7 @@ def tokenisation(moteur_xslt, nom_fichier):
     ajout_xml_id(fichier_tokenise)
     subprocess.run(["java", "-jar", moteur_xslt, "-xi:on", fichier_tokenise,
                     "xsl/regularisation.xsl"])
-    print("Tokénisation et régularisation du corpus pour alignement ✓")
+    print("Tokénisation et régularisation du fichier ✓")
 
 
 def generateur_lettre_initiale(size=1, chars=string.ascii_lowercase):  # éviter les nombres en premier caractère de
@@ -65,10 +65,11 @@ def lemmatisation(fichier, moteur_xslt, langue):
     fichier_sans_extension = os.path.splitext(fichier)[0]
     fichier_xsl = "xsl/transformation_freeling.xsl"
     chemin_vers_fichier = "fichier_tokenise_regularise/" + str(fichier)
-    fichier_entree_txt = '../fichier_tokenise_regularise/txt/' + fichier_sans_extension + '.txt'
+    fichier_entree_txt = 'fichier_tokenise_regularise/txt/' + fichier_sans_extension + '.txt'
     param_sortie = "sortie=" + fichier_entree_txt
     subprocess.run(["java", "-jar", moteur_xslt, chemin_vers_fichier, fichier_xsl, param_sortie])
     if langue == "castillan":
+        print("Lemmatisation...")
         fichier_lemmatise = 'fichier_tokenise_regularise/txt/' + fichier_sans_extension + '_lemmatise' + '.txt'
         cmd_sh = ["sh", "analyze.sh", fichier_entree_txt,
                   fichier_lemmatise]  # je dois passer par un script externe car un subprocess tourne dans le vide,
@@ -92,11 +93,6 @@ def lemmatisation(fichier, moteur_xslt, langue):
             nombre_mots_precedents = int(mot.xpath("count(preceding::tei:w) + 1", namespaces=tei))
             nombre_ponctuation_precedente = int(mot.xpath("count(preceding::tei:pc) + 1", namespaces=tei))
             position_absolue_element = nombre_mots_precedents + nombre_ponctuation_precedente  # attention à
-            # enlever 1 quand on cherche dans la liste
-            if position_absolue_element % round(nombre_tokens / 20) == 0:
-                print('Réinjection dans le xml: ' + str(
-                    round(position_absolue_element / nombre_tokens * 100)) + '%',
-                      end="\r")
             liste_correcte = maliste[position_absolue_element - 2]  # Ça marche bien si la lemmatisation se fait
             # sans retokenisation. Pour l'instant, ça bloque avec les chiffre (ochenta mill est fusionné). Voir
             # avec les devs de Freeling.
@@ -108,6 +104,7 @@ def lemmatisation(fichier, moteur_xslt, langue):
         string = etree.tostring(root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode('utf8')
         sortie_xml.write(str(string))
         sortie_xml.close()
+        print("Lemmatisation ✓")
 
     elif langue == "latin":
         modele_latin = "model.tar"
@@ -139,10 +136,6 @@ def lemmatisation(fichier, moteur_xslt, langue):
                 mot.xpath("count(preceding::tei:pc) + 1", namespaces=tei))
             position_absolue_element = nombre_mots_precedents + nombre_ponctuation_precedente  # attention à
             # enlever 1 quand on cherche dans la liste
-            if position_absolue_element % round(nombre_tokens / 20) == 0:
-                print('Réinjection dans le xml: ' + str(
-                    round(position_absolue_element / nombre_tokens * 100)) + '%',
-                      end="\r")
             liste_correcte = maliste[position_absolue_element - 2]
             cas = liste_correcte[1]
             mode = liste_correcte[2]
@@ -153,12 +146,12 @@ def lemmatisation(fichier, moteur_xslt, langue):
             pos = liste_correcte[7]
             # on nettoie la morphologie
             morph = "CAS=%s|MODE=%s|NOMB.=%s|PERS.=%s|TEMPS=%s" % (cas, mode, number, person, temps)
-            morph = re.sub("\|.*?_(?=\|)\|", "|", morph) # https://stackoverflow.com/questions/8703017/remove-sub-string-by
-            morph = re.sub("\|((?!\|).)*?_$", "", morph)
-            morph = re.sub("\|.*?_(?=\|)\|", "|", morph)
-            morph = re.sub(".*?_(?=\|)\|", "", morph)
-            morph = re.sub("NOMB\.=_", "", morph)
-            # -using-python
+            morph = re.sub("((?!\|).)*?_(?=\|)", "",morph) # on supprime les traits non renseignés du milieu
+            morph = re.sub("^\|*", "", morph) # on supprime les pipes qui commencent la valeur
+            morph = re.sub("(\|)+", "|", morph) # on supprime les pipes suivis
+            morph = re.sub("\|((?!\|).)*?_$", "", morph) # on supprime les traits non renseignés de fin
+            morph = re.sub("(?!\|).*_(?!\|)", "", morph) # on supprime les traits non renseignés uniques
+            #
             mot.set("lemma", lemme)
             mot.set("pos", pos)
             if morph:
@@ -168,6 +161,7 @@ def lemmatisation(fichier, moteur_xslt, langue):
             'utf8')
         sortie_xml.write(str(a_ecrire))
         sortie_xml.close()
+        print("Lemmatisation du fichier ✓")
 
 
 def txt_to_liste(filename):
@@ -186,5 +180,14 @@ def txt_to_liste(filename):
     return maliste
 
 
+def production_doc_final(fichier):
+    print("Injection dans le XML...")
+    param = "nom_fichier=" + nom_fichier
+    commande = "java -jar %s -xi:on %s xsl/doc_final.xsl %s" % (moteur_xslt, fichier, param)
+    subprocess.run(commande.split())
+    print("Injection dans le XML... ✓")
+
+
 tokenisation(moteur_xslt, nom_fichier)
 lemmatisation(nom_fichier, moteur_xslt, langue)
+production_doc_final("fichier_tokenise/%s" % nom_fichier)
