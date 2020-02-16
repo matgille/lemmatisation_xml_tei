@@ -18,9 +18,12 @@ Et voilà !
 
 ## Fonctionnement
 
-`python3 lemmatisation.py fichier langue`
+`python3 lemmatisation.py fichier --langue`
 
 Seuls le latin médiéval et le castillan médiéval sont supportés pour le moment. 
+
+
+### Test
 Le script peut être testé à l'aide du fichier présent dans test/. Il s'agit d'un texte latin médiéval (d'une édition de 
 1605):
 `python3 lemmatisation.py test/Rome_W.xml --latin` 
