@@ -18,7 +18,7 @@ Résultat: un fichier final qui marche !-->
 
     <xsl:template match="/">
         <xsl:variable name="fichier_tokenise" select="concat('fichier_tokenise/resultat_', $nom_fichier)"/>
-        <xsl:result-document href="{$fichier_tokenise}">
+        <xsl:result-document href="resultat/{$fichier_tokenise}">
             <xsl:apply-templates/>
         </xsl:result-document>
     </xsl:template>
