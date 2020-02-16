@@ -10,9 +10,8 @@ Ce script permet l'annotation grammaticale d'une source XML conforme TEI tout en
 Seuls le latin médiéval et le castillan médiéval sont supportés pour le moment. 
 
 ## Projets similaires
-Ce projet est fortement inspiré du projet [Falcon](https://github.com/CondorCompPhil/falcon) qui vise déjà
- à lemmatiser en utilisant pie ou Freeling. 
-
+Ce projet est fortement inspiré du projet [Falcon](https://github.com/CondorCompPhil/falcon), notamment la possibilité
+de lemmatiser avec plusieurs outils, freeling ou pie. 
 
 
 ## Crédits et réferences
