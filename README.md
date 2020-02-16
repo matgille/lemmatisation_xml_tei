@@ -24,7 +24,7 @@ sur mon propre corpus et devront aussi être modifiées. Ces règles n'affectent
 une transcription structurelle minimale.
 
 ## Projets similaires
-Ce projet est fortement inspiré du projet [Falcon](https://github.com/CondorCompPhil/falcon), notamment la possibilité
+Ce projet est fortement inspiré du projet [Falcon](https://github.com/CondorCompPhil/falcon) (Jean-Baptiste Camps, Lucence Ing et Elena Spadini), notamment la possibilité
 de lemmatiser avec plusieurs outils, freeling ou pie. 
 
 
