@@ -29,7 +29,7 @@ de lemmatiser avec plusieurs outils, freeling ou pie.
 
 
 ## Remerciements, crédits et réferences
-Merci à Jean-Baptiste Camps de m'avoir indiqué l'existence de Freeling; merci à Thibault Clérice pour son aide sur pie. 
+Merci à Jean-Baptiste Camps de m'avoir fait découvrir Freeling; merci à Thibault Clérice pour son aide sur pie. 
 
 Le modèle de lemmatisation présent sur le dépôt est celui entraîné par Thibault Clérice (ÉnC) sur les données du LASLA
 ([ici](https://github.com/chartes/deucalion-model-lasla)):
