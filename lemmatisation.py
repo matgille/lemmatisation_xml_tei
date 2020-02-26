@@ -6,6 +6,7 @@ import random
 from lxml import etree
 import xml.etree.ElementTree as ET
 import os
+from cltk.lemmatize.latin.backoff import BackoffLatinLemmatizer
 
 fichier = sys.argv[1]
 nom_fichier = os.path.basename(fichier)
@@ -13,6 +14,8 @@ argument = sys.argv[2]
 moteur_xslt = "saxon9he.jar"
 if argument == "--latin":
     langue = "latin"
+elif argument == "--latinclassique":
+    langue = "latinclassique"
 else:
     langue = "castillan"
 
@@ -94,10 +97,8 @@ def lemmatisation(fichier, moteur_xslt, langue):
         tei = {'tei': 'http://www.tei-c.org/ns/1.0'}
         groupe_words = "//tei:w"
         tokens = root.xpath(groupe_words, namespaces=tei)
-        nombre_mots = int(root.xpath("count(//tei:w)", namespaces=tei))
-        nombre_pc = int(root.xpath("count(//tei:pc)", namespaces=tei))
-        nombre_tokens = nombre_mots + nombre_pc
         fichier_lemmatise = fichier_tokenise
+        n = 1
         for mot in tokens:
             nombre_mots_precedents = int(mot.xpath("count(preceding::tei:w) + 1", namespaces=tei))
             nombre_ponctuation_precedente = int(mot.xpath("count(preceding::tei:pc) + 1", namespaces=tei))
@@ -105,6 +106,7 @@ def lemmatisation(fichier, moteur_xslt, langue):
             liste_correcte = maliste[position_absolue_element - 2]  # Ça marche bien si la lemmatisation se fait
             # sans retokenisation. Pour l'instant, ça bloque avec les chiffre (ochenta mill est fusionné). Voir
             # avec les devs de Freeling.
+            n += 1
             lemme_position = liste_correcte[1]
             pos_position = liste_correcte[2]
             mot.set("lemma", lemme_position)
@@ -155,16 +157,52 @@ def lemmatisation(fichier, moteur_xslt, langue):
             pos = liste_correcte[7]
             # on nettoie la morphologie pour supprimer les entrées vides
             morph = "CAS=%s|MODE=%s|NOMB.=%s|PERS.=%s|TEMPS=%s" % (cas, mode, number, person, temps)
-            morph = re.sub("((?!\|).)*?_(?=\|)", "",morph) # on supprime les traits non renseignés du milieu
-            morph = re.sub("^\|*", "", morph) # on supprime les pipes qui commencent la valeur
-            morph = re.sub("(\|)+", "|", morph) # on supprime les pipes suivis
-            morph = re.sub("\|((?!\|).)*?_$", "", morph) # on supprime les traits non renseignés de fin
-            morph = re.sub("(?!\|).*_(?!\|)", "", morph) # on supprime les traits non renseignés uniques
+            morph = re.sub("((?!\|).)*?_(?=\|)", "", morph)  # on supprime les traits non renseignés du milieu
+            morph = re.sub("^\|*", "", morph)  # on supprime les pipes qui commencent la valeur
+            morph = re.sub("(\|)+", "|", morph)  # on supprime les pipes suivis
+            morph = re.sub("\|((?!\|).)*?_$", "", morph)  # on supprime les traits non renseignés de fin
+            morph = re.sub("(?!\|).*_(?!\|)", "", morph)  # on supprime les traits non renseignés uniques
             #
             mot.set("lemma", lemme)
             mot.set("pos", pos)
             if morph:
                 mot.set("morph", morph)
+        sortie_xml = open(fichier_lemmatise, "w+")
+        a_ecrire = etree.tostring(root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode(
+            'utf8')
+        sortie_xml.write(str(a_ecrire))
+        sortie_xml.close()
+        print("Lemmatisation du fichier ✓")
+
+
+    elif langue == "latinclassique":  # 1) on transforme le fichier txt tokenise en txt_to_liste()
+        nom_fichier_sans_rien = nom_fichier.split(".")[0]
+        ma_liste_tokenisee = txt_to_liste_latinclassique("fichier_tokenise_regularise/txt/%s.txt" % nom_fichier_sans_rien)
+        lemmatizer = BackoffLatinLemmatizer()
+        ma_liste_lemmatisee = lemmatizer.lemmatize(ma_liste_tokenisee)
+        print(ma_liste_lemmatisee)
+        parser = etree.XMLParser(load_dtd=True,
+                                 resolve_entities=True)  # inutile car les entités ont déjà été résolues
+        # auparavant normalement, mais au cas où.
+        fichier_tokenise = "fichier_tokenise_regularise/" + fichier
+        f = etree.parse(fichier_tokenise, parser=parser)
+        root = f.getroot()
+        tei = {'tei': 'http://www.tei-c.org/ns/1.0'}
+        groupe_words = "//tei:w"
+        tokens = root.xpath(groupe_words, namespaces=tei)
+        nombre_mots = int(root.xpath("count(//tei:w)", namespaces=tei))
+        nombre_pc = int(root.xpath("count(//tei:pc)", namespaces=tei))
+        nombre_tokens = nombre_mots + nombre_pc
+        fichier_lemmatise = fichier_tokenise
+        for mot in tokens:
+            nombre_mots_precedents = int(mot.xpath("count(preceding::tei:w) + 1", namespaces=tei))
+            nombre_ponctuation_precedente = int(
+                mot.xpath("count(preceding::tei:pc) + 1", namespaces=tei))
+            position_absolue_element = nombre_mots_precedents + nombre_ponctuation_precedente  # attention à
+            # enlever 1 quand on cherche dans la liste
+            liste_correcte = ma_liste_lemmatisee[position_absolue_element - 2]
+            lemme = liste_correcte[1]
+            mot.set("lemma", lemme)
         sortie_xml = open(fichier_lemmatise, "w+")
         a_ecrire = etree.tostring(root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode(
             'utf8')
@@ -186,6 +224,22 @@ def txt_to_liste(filename):
                         line):  # https://stackoverflow.com/a/3711884 élimination des lignes vides (séparateur de phrase)
             resultat = re.split(r'\s+', line)
             maliste.append(resultat)
+    return maliste
+
+
+def txt_to_liste_latinclassique(filename):
+    """
+    Transforme le fichier txt produit par Freeling ou pie en liste de listes pour processage ultérieur.
+    :param filename: le nom du fichier txt à transformer
+    :return: une liste de listes: pour chaque forme, les différentes analyses
+    """
+    maliste = []
+    fichier = open(filename, 'r')
+    for line in fichier.readlines():
+        if not re.match(r'^\s*$',
+                        line):  # https://stackoverflow.com/a/3711884 élimination des lignes vides (séparateur de phrase)
+            resultat = re.split(r'\s+', line)
+            maliste.append(resultat[0])
     return maliste
 
 
