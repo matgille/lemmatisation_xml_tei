@@ -15,7 +15,7 @@ Le latin médiéval (avec Pie), le latin classique (CLTK) et le castillan médi�
 ## Test
 Le script peut être testé à l'aide du fichier présent dans test/. Il s'agit d'une partie du *De Regimine Principum* (III,3), un texte latin médiéval (d'une édition de 
 1605):
-`python3 lemmatisation.py test/Rome_W.xml --latin_classique` 
+`python3 lemmatisation.py test/Rome_W.xml --latin-classique` 
 
 ## *Caveat*
 
