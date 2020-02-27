@@ -33,8 +33,12 @@ Résultat: un fichier final qui marche !-->
                     <xsl:attribute name="xml:id" select="@xml:id"/>
                     <xsl:attribute name="lemma"
                         select="document($fichier_tokenise_regularise)//tei:w[@xml:id = $xml_id]/@lemma"/>
-                    <xsl:attribute name="pos"
-                        select="document($fichier_tokenise_regularise)//tei:w[@xml:id = $xml_id]/@pos"/>
+                    <xsl:if
+                        test="document($fichier_tokenise_regularise)//tei:w[@xml:id = $xml_id]/@pos">
+                        <xsl:attribute name="pos"
+                            select="document($fichier_tokenise_regularise)//tei:w[@xml:id = $xml_id]/@pos"
+                        />
+                    </xsl:if>
                     <xsl:if
                         test="document($fichier_tokenise_regularise)//tei:w[@xml:id = $xml_id]/@morph">
                         <xsl:attribute name="morph"

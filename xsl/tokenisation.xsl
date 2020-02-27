@@ -98,7 +98,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:function>
-  
+
     <!--Ici commencent les problèmes d'overlapping-->
     <xsl:template match="tei:hi[@rend = 'souligne' or @rend = 'rubrique']">
         <xsl:element name="hi" namespace="http://www.tei-c.org/ns/1.0">
@@ -126,7 +126,7 @@
         match="text()[not(ancestor::tei:note)][not(ancestor::tei:teiHeader)][not(ancestor::tei:w)][not(ancestor::tei:desc)]"
         mode="secondePasse">
         <xsl:for-each select="tokenize(., '\s+')">
-            <xsl:analyze-string select="." regex="([():,;¿?!¡.])">
+            <xsl:analyze-string select="." regex="([\[\]():,;¿?!¡.-]|&lt;|&gt;)">
                 <xsl:matching-substring>
                     <xsl:element name="pc" namespace="http://www.tei-c.org/ns/1.0">
                         <xsl:value-of select="regex-group(1)"/>
@@ -214,8 +214,16 @@
 
     <xsl:template match="/">
         <xsl:result-document href="fichier_tokenise/{$nom_fichier}">
-            <xsl:apply-templates select="$ResultatTroisiemePasse/tei:TEI" mode="quatriemePasse"
-                xpath-default-namespace="tei"/>
+            <xsl:if test="tei:teiCorpus" xpath-default-namespace="http://www.tei-c.org/ns/1.0">
+                <xsl:element name="tei:teiCorpus">
+                    <xsl:apply-templates select="$ResultatTroisiemePasse//tei:TEI"
+                        mode="quatriemePasse" xpath-default-namespace="tei"/>
+                </xsl:element>
+            </xsl:if>
+            <xsl:if test="not(tei:teiCorpus)" xpath-default-namespace="http://www.tei-c.org/ns/1.0">
+                <xsl:apply-templates select="$ResultatTroisiemePasse/tei:TEI" mode="quatriemePasse"
+                    xpath-default-namespace="tei"/>
+            </xsl:if>
         </xsl:result-document>
     </xsl:template>
 
