@@ -47,7 +47,7 @@ Pour Freeling ([site](http://nlp.lsi.upc.edu/freeling/)):
 * Lluís Padró and Evgeny Stanilovsky. *FreeLing 3.0: Towards Wider Multilinguality*. Proceedings of the Language Resources and Evaluation Conference (LREC 2012) ELRA. Istanbul, Turkey. May, 2012.
 
 Pour CLTK: 
-* Kyle P. Johnson et al.. (2014-2019). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.<v0.1.111>
+* Kyle P. Johnson et al.. (2014-2019). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.3445585
 
 
 ## Licence
