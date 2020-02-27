@@ -8,7 +8,8 @@ Ce script permet l'annotation grammaticale d'une source XML conforme TEI tout en
 
 `python3 lemmatisation.py fichier --langue`
 
-Seuls le latin médiéval et le castillan médiéval sont supportés pour le moment. 
+Le latin médiéval (avec Pie), le latin classique (CLTK) et le castillan médiéval (Freeling) sont supportés pour le moment. 
+
 
 
 ## Test
