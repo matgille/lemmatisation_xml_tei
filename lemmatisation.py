@@ -12,9 +12,9 @@ fichier = sys.argv[1]
 nom_fichier = os.path.basename(fichier)
 argument = sys.argv[2]
 moteur_xslt = "saxon9he.jar"
-if argument == "--latin":
+if argument == "--latin-medieval":
     langue = "latin"
-elif argument == "--latinclassique":
+elif argument == "--latin-classique":
     langue = "latinclassique"
 else:
     langue = "castillan"
