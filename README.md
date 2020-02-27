@@ -10,6 +10,12 @@ Ce script permet l'annotation grammaticale d'une source XML conforme TEI tout en
 
 Le latin médiéval (avec Pie), le latin classique (CLTK) et le castillan médiéval (Freeling) sont supportés pour le moment. 
 
+Les langues médiévales sont annotés de façon relativement exhaustive (lemmes, parties du discours, morphologie). Seule la lemmatisation est proposée pour l'instant pour le latin classique. 
+
+Les étiquettes de parties du discours sont les suivantes: 
+- CATTEX pour le latin médiéval 
+- EAGLES pour le castillan médiéval. Attention, EAGLES propose un jeu d'étiquettes qui fusionne parties du discours et morphologie. 
+
 
 
 ## Test
