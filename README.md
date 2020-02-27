@@ -13,7 +13,7 @@ Le latin médiéval (avec Pie), le latin classique (CLTK) et le castillan médi�
 Les langues médiévales sont annotés de façon relativement exhaustive (lemmes, parties du discours, morphologie). Seule la lemmatisation est proposée pour l'instant pour le latin classique. 
 
 Les étiquettes de parties du discours sont les suivantes: 
-- CATTEX pour le latin médiéval 
+- CATTEX pour le latin médiéval;
 - EAGLES pour le castillan médiéval. Attention, EAGLES propose un jeu d'étiquettes qui fusionne parties du discours et morphologie. 
 
 
@@ -21,7 +21,7 @@ Les étiquettes de parties du discours sont les suivantes:
 ## Test
 Le script peut être testé à l'aide du fichier présent dans test/. Il s'agit d'une partie du *De Regimine Principum* (III,3), un texte latin médiéval (d'une édition de 
 1605):
-`python3 lemmatisation.py test/Rome_W.xml --latin-classique` 
+`python3 lemmatisation.py test/Rome_W.xml --latin-medieval` 
 
 ## *Caveat*
 
