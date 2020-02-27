@@ -3,6 +3,25 @@
 
 Ce script permet l'annotation grammaticale d'une source XML conforme TEI tout en conservant l'encodage de celle-ci.
 
+## Dépendances
+
+Ce script fonctionne grâce à plusieurs logiciels ou librairies pythons: 
+- Freeling ([ici](http://nlp.lsi.upc.edu/freeling/), serveur en panne depuis quelques jours)
+- Pie ([ici](https://pypi.org/project/nlp-pie/))
+- CLTK ([ici](https://pypi.org/project/cltk/))
+
+### CLTK
+
+La méthode utilisée pour la lemmatisation du latin classique est le *backoff lemmatizer*. Cette méthode ne fonctionne qu'avec l'installation du modèle de données disponible [ici](https://github.com/cltk/latin_models_cltk). Après installation de CTLK, opérer les manipulations suivantes:
+
+```
+git pull https://github.com/cltk/latin_models_cltk
+mkdir -p ~/cltk_data/latin/model
+mv latin_models_cltk ~/cltk_data/latin/model/
+```
+
+
+
 
 ## Fonctionnement
 
