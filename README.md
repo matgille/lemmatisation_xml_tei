@@ -57,17 +57,27 @@ de lemmatiser avec plusieurs outils, freeling ou pie.
 ## Remerciements, crédits et réferences
 Merci à Jean-Baptiste Camps de m'avoir fait découvrir Freeling; merci à Thibault Clérice pour son aide sur pie. 
 
+### Bibliographie
+
+
+* Jean-Baptiste Camps, Elena Spadini. CondorCompPhil/falcon: [https://github.com/CondorCompPhil/falcon](https://github.com/CondorCompPhil/falcon).
+
+
 Le modèle de lemmatisation présent sur le dépôt est celui entraîné par Thibault Clérice (ÉnC) sur les données du LASLA
 ([ici](https://github.com/chartes/deucalion-model-lasla)):
 *   Thibault Clérice. (2019, February 1). chartes/deucalion-model-lasla: LASLA Latin Lemmatizer - Alpha (Version 0.0.1). 
 Zenodo. http://doi.org/10.5281/zenodo.2554847 _Check the latest version here:_[Zenodo DOI](https://doi.org/10.5281/zenodo.2554846)
 
-Pour Freeling ([site](http://nlp.lsi.upc.edu/freeling/)): 
+Freeling:
 * Lluís Padró and Evgeny Stanilovsky. *FreeLing 3.0: Towards Wider Multilinguality*. Proceedings of the Language Resources and Evaluation Conference (LREC 2012) ELRA. Istanbul, Turkey. May, 2012.
 
-Pour CLTK: 
-* Kyle P. Johnson et al.. (2014-2019). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.3445585
 
+* Ariane Pinche (2019). Annoter facilement un corpus complexe : l'exemple de Pyrrha, interface de post-correction, et Pie, 
+lemmatiseur et tagueur morphosyntaxique, pour l'ancien français. Rencontres lyonnaises des jeunes chercheurs en linguistique historique, Lyon. 
+[https://hal.archives-ouvertes.fr/hal-02151796](https://hal.archives-ouvertes.fr/hal-02151796)
+
+CLTK:
+* Kyle P. Johnson et al.. (2014-2019). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.3445585
 
 ## Licence
 
