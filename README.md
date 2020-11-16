@@ -23,7 +23,7 @@ mv latin_models_cltk ~/cltk_data/latin/model/
 ### Freeling
 
 
-Voir le [manuel de JB Camps]{https://github.com/CondorCompPhil/falcon#freeling-installation-for-this-pipeline} pour la modification des réglages
+Voir le [manuel de JB Camps](https://github.com/CondorCompPhil/falcon#freeling-installation-for-this-pipeline) pour la modification des réglages
 du lemmatiseur de castillan médiéval. 
 
 
