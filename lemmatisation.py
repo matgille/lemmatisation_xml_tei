@@ -6,18 +6,22 @@ import random
 from lxml import etree
 import xml.etree.ElementTree as ET
 import os
+from IPython.display import clear_output
 from cltk.lemmatize.latin.backoff import BackoffLatinLemmatizer
 
-fichier = sys.argv[1]
-nom_fichier = os.path.basename(fichier)
-argument = sys.argv[2]
-moteur_xslt = "saxon9he.jar"
-if argument == "--latin-medieval":
-    langue = "latin"
-elif argument == "--latin-classique":
-    langue = "latinclassique"
-else:
-    langue = "castillan"
+
+def principal(fichier, argument):
+    nom_fichier = os.path.basename(fichier)
+    moteur_xslt = "saxon9he.jar"
+    if argument == "--latin-medieval":
+        langue = "latin"
+    elif argument == "--latin-classique":
+        langue = "latinclassique"
+    else:
+        langue = "castillan"
+    tokenisation(moteur_xslt, nom_fichier)
+    lemmatisation(nom_fichier, moteur_xslt, langue)
+    production_doc_final(nom_fichier, moteur_xslt)
 
 
 def tokenisation(moteur_xslt, nom_fichier):
@@ -36,7 +40,6 @@ def tokenisation(moteur_xslt, nom_fichier):
     ajout_xml_id(fichier_tokenise)
     subprocess.run(["java", "-jar", moteur_xslt, "-xi:on", fichier_tokenise,
                     "xsl/regularisation.xsl"])
-    print("Tokénisation et régularisation du fichier ✓")
 
 
 def generateur_lettre_initiale(size=1, chars=string.ascii_lowercase):  # éviter les nombres en premier caractère de
@@ -80,8 +83,9 @@ def lemmatisation(fichier, moteur_xslt, langue):
     fichier_entree_txt = 'fichier_tokenise_regularise/txt/' + fichier_sans_extension + '.txt'
     param_sortie = "sortie=" + fichier_entree_txt
     subprocess.run(["java", "-jar", moteur_xslt, chemin_vers_fichier, fichier_xsl, param_sortie])
+    clear()
+    print("Tokénisation et régularisation du fichier ✓\nLemmatisation...")
     if langue == "castillan":
-        print("Lemmatisation...")
         fichier_lemmatise = 'fichier_tokenise_regularise/txt/' + fichier_sans_extension + '_lemmatise' + '.txt'
         cmd_sh = ["sh", "analyze.sh", fichier_entree_txt,
                   fichier_lemmatise]  # je dois passer par un script externe car un subprocess tourne dans le vide,
@@ -111,11 +115,6 @@ def lemmatisation(fichier, moteur_xslt, langue):
             pos_position = liste_correcte[2]
             mot.set("lemma", lemme_position)
             mot.set("pos", pos_position)
-        sortie_xml = open(fichier_lemmatise, "w+")
-        string = etree.tostring(root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode('utf8')
-        sortie_xml.write(str(string))
-        sortie_xml.close()
-        print("Lemmatisation ✓")
 
     elif langue == "latin":
         modele_latin = "model.tar"
@@ -167,17 +166,11 @@ def lemmatisation(fichier, moteur_xslt, langue):
             mot.set("pos", pos)
             if morph:
                 mot.set("morph", morph)
-        sortie_xml = open(fichier_lemmatise, "w+")
-        a_ecrire = etree.tostring(root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode(
-            'utf8')
-        sortie_xml.write(str(a_ecrire))
-        sortie_xml.close()
-        print("Lemmatisation du fichier ✓")
-
 
     elif langue == "latinclassique":  # 1) on transforme le fichier txt tokenise en txt_to_liste()
         nom_fichier_sans_rien = nom_fichier.split(".")[0]
-        ma_liste_tokenisee = txt_to_liste_latinclassique("fichier_tokenise_regularise/txt/%s.txt" % nom_fichier_sans_rien)
+        ma_liste_tokenisee = txt_to_liste_latinclassique(
+            "fichier_tokenise_regularise/txt/%s.txt" % nom_fichier_sans_rien)
         lemmatizer = BackoffLatinLemmatizer()
         ma_liste_lemmatisee = lemmatizer.lemmatize(ma_liste_tokenisee)
         print(ma_liste_lemmatisee)
@@ -203,12 +196,14 @@ def lemmatisation(fichier, moteur_xslt, langue):
             liste_correcte = ma_liste_lemmatisee[position_absolue_element - 2]
             lemme = liste_correcte[1]
             mot.set("lemma", lemme)
-        sortie_xml = open(fichier_lemmatise, "w+")
-        a_ecrire = etree.tostring(root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode(
-            'utf8')
-        sortie_xml.write(str(a_ecrire))
-        sortie_xml.close()
-        print("Lemmatisation du fichier ✓")
+
+    sortie_xml = open(fichier_lemmatise, "w+")
+    a_ecrire = etree.tostring(root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode(
+        'utf8')
+    sortie_xml.write(str(a_ecrire))
+    sortie_xml.close()
+    clear()
+    print("Tokénisation et régularisation du fichier ✓\nLemmatisation du fichier ✓")
 
 
 def txt_to_liste(filename):
@@ -243,20 +238,27 @@ def txt_to_liste_latinclassique(filename):
     return maliste
 
 
-def production_doc_final(fichier):
+def production_doc_final(nom_fichier, moteur_xslt):
     """
     Production du document final: on compare les fichiers régularisés et non régularisés pour remettre
     les annotations dans le fichier non régularisé.
     :param fichier: le nom du fichier sans sa base
     :return: le fichier final lemmatisé
     """
+    fichier_tokenise = "fichier_tokenise/%s" % nom_fichier
     print("Injection dans le XML...")
     param = "nom_fichier=" + nom_fichier
-    commande = "java -jar %s -xi:on %s xsl/doc_final.xsl %s" % (moteur_xslt, fichier, param)
+    commande = "java -jar %s -xi:on %s xsl/doc_final.xsl %s" % (moteur_xslt, fichier_tokenise, param)
     subprocess.run(commande.split())
-    print("Injection dans le XML... ✓")
+    clear()
+    print("Tokénisation et régularisation du fichier ✓\nLemmatisation du fichier ✓\nInjection dans le XML... ✓")
 
 
-tokenisation(moteur_xslt, nom_fichier)
-lemmatisation(nom_fichier, moteur_xslt, langue)
-production_doc_final("fichier_tokenise/%s" % nom_fichier)
+def clear():
+    os.system('clear')
+
+
+if __name__ == "__main__":
+    fichier = sys.argv[1]
+    argument = sys.argv[2]
+    principal(fichier, argument)
