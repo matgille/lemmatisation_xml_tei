@@ -3,6 +3,16 @@
 
 Ce script permet l'annotation grammaticale d'une source XML conforme TEI tout en conservant l'encodage de celle-ci.
 
+## Installation
+
+```
+git clone https://gitlab.huma-num.fr/mgillelevenson/lemmatisation_xml_tei.git
+cd lemmatisation_xml_tei
+python3 -m venv venv/
+source venv/bin/activate
+pip3 install -r requirements.txt
+```
+
 ## Dépendances
 
 Ce script fonctionne grâce à plusieurs logiciels ou librairies pythons: 
