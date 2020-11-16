@@ -63,7 +63,7 @@ Merci à Jean-Baptiste Camps de m'avoir fait découvrir Freeling; merci à Thiba
 * Jean-Baptiste Camps, Elena Spadini. CondorCompPhil/falcon: [https://github.com/CondorCompPhil/falcon](https://github.com/CondorCompPhil/falcon).
 
 
-Le modèle de lemmatisation présent sur le dépôt est celui entraîné par Thibault Clérice (ÉnC) sur les données du LASLA
+Le modèle de lemmatisation `model.tar` présent sur le dépôt est celui entraîné par Thibault Clérice (ÉnC) sur les données du LASLA
 ([ici](https://github.com/chartes/deucalion-model-lasla)):
 *   Thibault Clérice. (2019, February 1). chartes/deucalion-model-lasla: LASLA Latin Lemmatizer - Alpha (Version 0.0.1). 
 Zenodo. http://doi.org/10.5281/zenodo.2554847 _Check the latest version here:_[Zenodo DOI](https://doi.org/10.5281/zenodo.2554846)
