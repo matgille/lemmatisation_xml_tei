@@ -83,7 +83,6 @@ def lemmatisation(fichier, moteur_xslt, langue):
     fichier_entree_txt = 'fichier_tokenise_regularise/txt/' + fichier_sans_extension + '.txt'
     param_sortie = "sortie=" + fichier_entree_txt
     subprocess.run(["java", "-jar", moteur_xslt, chemin_vers_fichier, fichier_xsl, param_sortie])
-    clear()
     print("Tokénisation et régularisation du fichier ✓\nLemmatisation...")
     if langue == "castillan":
         fichier_lemmatise = 'fichier_tokenise_regularise/txt/' + fichier_sans_extension + '_lemmatise' + '.txt'
@@ -202,7 +201,6 @@ def lemmatisation(fichier, moteur_xslt, langue):
         'utf8')
     sortie_xml.write(str(a_ecrire))
     sortie_xml.close()
-    clear()
     print("Tokénisation et régularisation du fichier ✓\nLemmatisation du fichier ✓")
 
 
@@ -250,7 +248,6 @@ def production_doc_final(nom_fichier, moteur_xslt):
     param = "nom_fichier=" + nom_fichier
     commande = "java -jar %s -xi:on %s xsl/doc_final.xsl %s" % (moteur_xslt, fichier_tokenise, param)
     subprocess.run(commande.split())
-    clear()
     print("Tokénisation et régularisation du fichier ✓\nLemmatisation du fichier ✓\nInjection dans le XML... ✓")
 
 
