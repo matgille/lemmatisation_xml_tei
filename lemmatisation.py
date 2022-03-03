@@ -125,7 +125,7 @@ def lemmatisation(fichier, moteur_xslt, langue):
         device = "cuda:0"
         batch_size = 32
         cmd = f"pie tag --device {device} --batch_size {batch_size} <{modele_latin},lemma,pos,Person,Numb,Tense,Case,Mood> {fichier_entree_txt}"
-        # subprocess.run(cmd.split())
+        subprocess.run(cmd.split())
         print("Lemmatisation du fichier ✓")
         fichier_seul = os.path.splitext(fichier_entree_txt)[0]
         fichier_lemmatise = f"{fichier_seul}-pie.txt"
