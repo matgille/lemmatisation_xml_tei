@@ -29,7 +29,7 @@ du lemmatiseur de castillan médiéval.
 
 ## Fonctionnement
 
-`python3 lemmatisation.py fichier --langue`
+`python3 lemmatisation.py fichier langue`
 
 Le latin médiéval (avec Pie) et le castillan médiéval (Freeling) sont supportés pour le moment. 
 
