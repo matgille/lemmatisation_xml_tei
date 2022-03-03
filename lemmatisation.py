@@ -3,6 +3,7 @@ import sys
 import string
 import re
 import random
+
 from lxml import etree
 import xml.etree.ElementTree as ET
 import os
@@ -128,9 +129,9 @@ def lemmatisation(fichier, moteur_xslt, langue):
         print("Lemmatisation du fichier ✓")
         fichier_seul = os.path.splitext(fichier_entree_txt)[0]
         fichier_lemmatise = f"{fichier_seul}-pie.txt"
-        maliste = txt_to_liste(fichier_lemmatise)
+        liste_lemmatisee = txt_to_liste(fichier_lemmatise)
         # Nettoyage de la liste
-        maliste.pop(0)  # on supprime les titres de colonnes
+        liste_lemmatisee.pop(0)  # on supprime les titres de colonnes
 
         parser = etree.XMLParser(load_dtd=True,
                                  resolve_entities=True)  # inutile car les entités ont déjà été résolues
@@ -144,32 +145,21 @@ def lemmatisation(fichier, moteur_xslt, langue):
         puncts_and_tokens = [element.tag.replace("{http://www.tei-c.org/ns/1.0}", "") for element
                              in root.xpath('//node()[self::tei:pc or self::tei:w]', namespaces=tei)]
 
-        number_of_previous_pc = []
+        number_of_previous_items_per_w = []
         n = 0
         # On va indiquer pour chaque index le nombre de ponctuation précédent.
         # Permet de gagner beaucoup de temps en n'utilisant pas lxml
-        n = 0
-        index = 0
-        while index < len(puncts_and_tokens):
-            if puncts_and_tokens[index] == 'pc':
+        for index, word_type in enumerate(puncts_and_tokens):
+            if word_type == 'pc':
                 pass
             else:
-                number_of_previous_pc.append(n)
-            index += 1
-            n += 1
-        print(puncts_and_tokens[:20])
-        print(number_of_previous_pc[:20])
-        print(number_of_previous_pc[-10:])
-        print(len(puncts_and_tokens))
-        print(len(tokens))
-        print(len(maliste))
-
+                number_of_previous_items_per_w.append(index)
 
         fichier_lemmatise = fichier_tokenise
         for index, mot in enumerate(tqdm.tqdm(tokens)):
-            position_absolue_element = number_of_previous_pc[index]
+            position_absolue_element = number_of_previous_items_per_w[index]
             try:
-                liste_correcte = maliste[position_absolue_element]
+                liste_correcte = liste_lemmatisee[position_absolue_element]
             except IndexError as e:
                 print("Error")
                 print(position_absolue_element)
@@ -182,7 +172,6 @@ def lemmatisation(fichier, moteur_xslt, langue):
             morph = re.sub("(\|)+", "|", morph)  # on supprime les pipes suivis
             morph = re.sub("\|((?!\|).)*?_$", "", morph)  # on supprime les traits non renseignés de fin
             morph = re.sub("(?!\|).*_(?!\|)", "", morph)  # on supprime les traits non renseignés uniques
-            #
             mot.set("lemma", lemme)
             mot.set("pos", pos)
             if morph:
@@ -209,22 +198,6 @@ def txt_to_liste(filename):
                         line):  # https://stackoverflow.com/a/3711884 élimination des lignes vides (séparateur de phrase)
             resultat = re.split(r'\s+', line)
             maliste.append(resultat)
-    return maliste
-
-
-def txt_to_liste_latinclassique(filename):
-    """
-    Transforme le fichier txt produit par Freeling ou pie en liste de listes pour processage ultérieur.
-    :param filename: le nom du fichier txt à transformer
-    :return: une liste de listes: pour chaque forme, les différentes analyses
-    """
-    maliste = []
-    fichier = open(filename, 'r')
-    for line in fichier.readlines():
-        if not re.match(r'^\s*$',
-                        line):  # https://stackoverflow.com/a/3711884 élimination des lignes vides (séparateur de phrase)
-            resultat = re.split(r'\s+', line)
-            maliste.append(resultat[0])
     return maliste
 
 
