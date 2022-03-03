@@ -31,6 +31,8 @@ du lemmatiseur de castillan médiéval.
 
 `python3 lemmatisation.py fichier langue`
 
+**Attention**, le document TEI doit avoir un attribut `@xml:id` correspondant au nom du fichier (sans extension).
+
 Le latin médiéval (avec Pie) et le castillan médiéval (Freeling) sont supportés pour le moment. 
 
 Les langues médiévales sont annotés de façon relativement exhaustive (lemmes, parties du discours, morphologie).
@@ -43,6 +45,7 @@ Les étiquettes de parties du discours sont les suivantes:
 
 ## Test
 Le script peut être testé à l'aide du fichier présent dans test/.
+
 `python3 lemmatisation.py test/Rome_W.xml latin` 
 
 ## *Caveat*
