@@ -6,22 +6,18 @@ import random
 from lxml import etree
 import xml.etree.ElementTree as ET
 import os
-from IPython.display import clear_output
-from cltk.lemmatize.latin.backoff import BackoffLatinLemmatizer
+import tqdm
 
 
 def principal(fichier, argument):
     nom_fichier = os.path.basename(fichier)
     moteur_xslt = "saxon9he.jar"
-    if argument == "--latin-medieval":
+    if argument == "latin":
         langue = "latin"
-    elif argument == "--latin-classique":
-        langue = "latinclassique"
     else:
         langue = "castillan"
     tokenisation(moteur_xslt, nom_fichier)
     lemmatisation(nom_fichier, moteur_xslt, langue)
-    production_doc_final(nom_fichier, moteur_xslt)
 
 
 def tokenisation(moteur_xslt, nom_fichier):
@@ -37,9 +33,11 @@ def tokenisation(moteur_xslt, nom_fichier):
     subprocess.run(["java", "-jar", moteur_xslt, "-xi:on", fichier,
                     "xsl/tokenisation.xsl", param])
     fichier_tokenise = "fichier_tokenise/%s" % nom_fichier
+    print("Tokénisation réussie.")
     ajout_xml_id(fichier_tokenise)
     subprocess.run(["java", "-jar", moteur_xslt, "-xi:on", fichier_tokenise,
                     "xsl/regularisation.xsl"])
+    print("Régularisation réussie")
 
 
 def generateur_lettre_initiale(size=1, chars=string.ascii_lowercase):  # éviter les nombres en premier caractère de
@@ -110,18 +108,26 @@ def lemmatisation(fichier, moteur_xslt, langue):
             # sans retokenisation. Pour l'instant, ça bloque avec les chiffre (ochenta mill est fusionné). Voir
             # avec les devs de Freeling.
             n += 1
-            lemme_position = liste_correcte[1]
-            pos_position = liste_correcte[2]
+            try:
+                lemme_position = liste_correcte[1]
+                pos_position = liste_correcte[2]
+            except:
+                print("Index error")
+                print(liste_correcte)
+                print(f"Position: {n}")
+                exit(0)
             mot.set("lemma", lemme_position)
             mot.set("pos", pos_position)
 
     elif langue == "latin":
         modele_latin = "model.tar"
-        cmd = "pie tag <%s,lemma,pos,Person,Numb,Tense,Case,Mood> %s" % (
-            modele_latin, fichier_entree_txt)
-        subprocess.run(cmd.split())
+        device = "cuda:0"
+        batch_size = 32
+        cmd = f"pie tag --device {device} --batch_size {batch_size} <{modele_latin},lemma,pos,Person,Numb,Tense,Case,Mood> {fichier_entree_txt}"
+        # subprocess.run(cmd.split())
+        print("Lemmatisation du fichier ✓")
         fichier_seul = os.path.splitext(fichier_entree_txt)[0]
-        fichier_lemmatise = str(fichier_seul) + "-pie.txt"
+        fichier_lemmatise = f"{fichier_seul}-pie.txt"
         maliste = txt_to_liste(fichier_lemmatise)
         # Nettoyage de la liste
         maliste.pop(0)  # on supprime les titres de colonnes
@@ -129,30 +135,46 @@ def lemmatisation(fichier, moteur_xslt, langue):
         parser = etree.XMLParser(load_dtd=True,
                                  resolve_entities=True)  # inutile car les entités ont déjà été résolues
         # auparavant normalement, mais au cas où.
-        fichier_tokenise = "fichier_tokenise_regularise/" + fichier
+        fichier_tokenise = "fichier_tokenise/" + fichier
         f = etree.parse(fichier_tokenise, parser=parser)
         root = f.getroot()
         tei = {'tei': 'http://www.tei-c.org/ns/1.0'}
         groupe_words = "//tei:w"
         tokens = root.xpath(groupe_words, namespaces=tei)
-        nombre_mots = int(root.xpath("count(//tei:w)", namespaces=tei))
-        nombre_pc = int(root.xpath("count(//tei:pc)", namespaces=tei))
-        nombre_tokens = nombre_mots + nombre_pc
+        puncts_and_tokens = [element.tag.replace("{http://www.tei-c.org/ns/1.0}", "") for element
+                             in root.xpath('//node()[self::tei:pc or self::tei:w]', namespaces=tei)]
+
+        number_of_previous_pc = []
+        n = 0
+        # On va indiquer pour chaque index le nombre de ponctuation précédent.
+        # Permet de gagner beaucoup de temps en n'utilisant pas lxml
+        n = 0
+        index = 0
+        while index < len(puncts_and_tokens):
+            if puncts_and_tokens[index] == 'pc':
+                pass
+            else:
+                number_of_previous_pc.append(n)
+            index += 1
+            n += 1
+        print(puncts_and_tokens[:20])
+        print(number_of_previous_pc[:20])
+        print(number_of_previous_pc[-10:])
+        print(len(puncts_and_tokens))
+        print(len(tokens))
+        print(len(maliste))
+
+
         fichier_lemmatise = fichier_tokenise
-        for mot in tokens:
-            nombre_mots_precedents = int(mot.xpath("count(preceding::tei:w) + 1", namespaces=tei))
-            nombre_ponctuation_precedente = int(
-                mot.xpath("count(preceding::tei:pc) + 1", namespaces=tei))
-            position_absolue_element = nombre_mots_precedents + nombre_ponctuation_precedente  # attention à
-            # enlever 1 quand on cherche dans la liste
-            liste_correcte = maliste[position_absolue_element - 2]
-            cas = liste_correcte[1]
-            mode = liste_correcte[2]
-            number = liste_correcte[3]
-            person = liste_correcte[4]
-            temps = liste_correcte[5]
-            lemme = liste_correcte[6]
-            pos = liste_correcte[7]
+        for index, mot in enumerate(tqdm.tqdm(tokens)):
+            position_absolue_element = number_of_previous_pc[index]
+            try:
+                liste_correcte = maliste[position_absolue_element]
+            except IndexError as e:
+                print("Error")
+                print(position_absolue_element)
+                exit(0)
+            cas, mode, number, person, temps, lemme, pos = liste_correcte[1], liste_correcte[2], liste_correcte[3], liste_correcte[4], liste_correcte[5], liste_correcte[6], liste_correcte[7]
             # on nettoie la morphologie pour supprimer les entrées vides
             morph = "CAS=%s|MODE=%s|NOMB.=%s|PERS.=%s|TEMPS=%s" % (cas, mode, number, person, temps)
             morph = re.sub("((?!\|).)*?_(?=\|)", "", morph)  # on supprime les traits non renseignés du milieu
@@ -166,42 +188,12 @@ def lemmatisation(fichier, moteur_xslt, langue):
             if morph:
                 mot.set("morph", morph)
 
-    elif langue == "latinclassique":  # 1) on transforme le fichier txt tokenise en txt_to_liste()
-        nom_fichier_sans_rien = nom_fichier.split(".")[0]
-        ma_liste_tokenisee = txt_to_liste_latinclassique(
-            "fichier_tokenise_regularise/txt/%s.txt" % nom_fichier_sans_rien)
-        lemmatizer = BackoffLatinLemmatizer()
-        ma_liste_lemmatisee = lemmatizer.lemmatize(ma_liste_tokenisee)
-        print(ma_liste_lemmatisee)
-        parser = etree.XMLParser(load_dtd=True,
-                                 resolve_entities=True)  # inutile car les entités ont déjà été résolues
-        # auparavant normalement, mais au cas où.
-        fichier_tokenise = "fichier_tokenise_regularise/" + fichier
-        f = etree.parse(fichier_tokenise, parser=parser)
-        root = f.getroot()
-        tei = {'tei': 'http://www.tei-c.org/ns/1.0'}
-        groupe_words = "//tei:w"
-        tokens = root.xpath(groupe_words, namespaces=tei)
-        nombre_mots = int(root.xpath("count(//tei:w)", namespaces=tei))
-        nombre_pc = int(root.xpath("count(//tei:pc)", namespaces=tei))
-        nombre_tokens = nombre_mots + nombre_pc
-        fichier_lemmatise = fichier_tokenise
-        for mot in tokens:
-            nombre_mots_precedents = int(mot.xpath("count(preceding::tei:w) + 1", namespaces=tei))
-            nombre_ponctuation_precedente = int(
-                mot.xpath("count(preceding::tei:pc) + 1", namespaces=tei))
-            position_absolue_element = nombre_mots_precedents + nombre_ponctuation_precedente  # attention à
-            # enlever 1 quand on cherche dans la liste
-            liste_correcte = ma_liste_lemmatisee[position_absolue_element - 2]
-            lemme = liste_correcte[1]
-            mot.set("lemma", lemme)
-
-    sortie_xml = open(fichier_lemmatise, "w+")
-    a_ecrire = etree.tostring(root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode(
-        'utf8')
-    sortie_xml.write(str(a_ecrire))
-    sortie_xml.close()
-    print("Tokénisation et régularisation du fichier ✓\nLemmatisation du fichier ✓")
+    with open(fichier_lemmatise, "w+") as sortie_xml:
+        print(fichier_lemmatise)
+        a_ecrire = etree.tostring(root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode(
+            'utf8')
+        print("Saving file.")
+        sortie_xml.write(str(a_ecrire))
 
 
 def txt_to_liste(filename):
@@ -236,20 +228,6 @@ def txt_to_liste_latinclassique(filename):
     return maliste
 
 
-def production_doc_final(nom_fichier, moteur_xslt):
-    """
-    Production du document final: on compare les fichiers régularisés et non régularisés pour remettre
-    les annotations dans le fichier non régularisé.
-    :param fichier: le nom du fichier sans sa base
-    :return: le fichier final lemmatisé
-    """
-    fichier_tokenise = "fichier_tokenise/%s" % nom_fichier
-    print("Injection dans le XML...")
-    param = "nom_fichier=" + nom_fichier
-    commande = "java -jar %s -xi:on %s xsl/doc_final.xsl %s" % (moteur_xslt, fichier_tokenise, param)
-    subprocess.run(commande.split())
-    print("Tokénisation et régularisation du fichier ✓\nLemmatisation du fichier ✓\nInjection dans le XML... ✓")
-
 
 def clear():
     os.system('clear')
@@ -257,5 +235,5 @@ def clear():
 
 if __name__ == "__main__":
     fichier = sys.argv[1]
-    argument = sys.argv[2]
-    principal(fichier, argument)
+    langue = sys.argv[2]
+    principal(fichier, langue)
