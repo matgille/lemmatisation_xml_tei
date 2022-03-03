@@ -16,19 +16,9 @@ pip3 install -r requirements.txt
 ## Dépendances
 
 Ce script fonctionne grâce à plusieurs logiciels ou librairies pythons: 
-- Freeling ([ici](http://nlp.lsi.upc.edu/freeling/), serveur en panne depuis quelques jours)
+- Freeling ([ici](http://nlp.lsi.upc.edu/freeling/), serveur instable)
 - Pie ([ici](https://pypi.org/project/nlp-pie/))
-- CLTK ([ici](https://pypi.org/project/cltk/))
 
-### CLTK
-
-La méthode utilisée pour la lemmatisation du latin classique est le *backoff lemmatizer*. Cette méthode ne fonctionne qu'avec l'installation du modèle de données disponible [ici](https://github.com/cltk/latin_models_cltk). Après installation de CTLK, opérer les manipulations suivantes:
-
-```
-git pull https://github.com/cltk/latin_models_cltk
-mkdir -p ~/cltk_data/latin/model
-mv latin_models_cltk ~/cltk_data/latin/model/
-```
 
 ### Freeling
 
@@ -41,9 +31,9 @@ du lemmatiseur de castillan médiéval.
 
 `python3 lemmatisation.py fichier --langue`
 
-Le latin médiéval (avec Pie), le latin classique (CLTK) et le castillan médiéval (Freeling) sont supportés pour le moment. 
+Le latin médiéval (avec Pie) et le castillan médiéval (Freeling) sont supportés pour le moment. 
 
-Les langues médiévales sont annotés de façon relativement exhaustive (lemmes, parties du discours, morphologie). Seule la lemmatisation est proposée pour l'instant pour le latin classique. 
+Les langues médiévales sont annotés de façon relativement exhaustive (lemmes, parties du discours, morphologie).
 
 Les étiquettes de parties du discours sont les suivantes: 
 - CATTEX pour le latin médiéval;
@@ -52,9 +42,8 @@ Les étiquettes de parties du discours sont les suivantes:
 
 
 ## Test
-Le script peut être testé à l'aide du fichier présent dans test/. Il s'agit d'une partie du *De Regimine Principum* (III,3), un texte latin médiéval (d'une édition de 
-1605):
-`python3 lemmatisation.py test/Rome_W.xml --latin-medieval` 
+Le script peut être testé à l'aide du fichier présent dans test/.
+`python3 lemmatisation.py test/Rome_W.xml latin` 
 
 ## *Caveat*
 
@@ -89,9 +78,6 @@ Freeling:
 * Ariane Pinche (2019). Annoter facilement un corpus complexe : l'exemple de Pyrrha, interface de post-correction, et Pie, 
 lemmatiseur et tagueur morphosyntaxique, pour l'ancien français. Rencontres lyonnaises des jeunes chercheurs en linguistique historique, Lyon. 
 [https://hal.archives-ouvertes.fr/hal-02151796](https://hal.archives-ouvertes.fr/hal-02151796)
-
-CLTK:
-* Kyle P. Johnson et al.. (2014-2019). CLTK: The Classical Language Toolkit. DOI 10.5281/zenodo.3445585
 
 ## Licence
 
