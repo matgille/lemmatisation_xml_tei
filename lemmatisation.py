@@ -5,7 +5,6 @@ import re
 import random
 
 from lxml import etree
-import xml.etree.ElementTree as ET
 import os
 import tqdm
 
@@ -123,7 +122,7 @@ def lemmatisation(fichier, moteur_xslt, langue):
     elif langue == "latin":
         modele_latin = "model.tar"
         device = "cuda:0"
-        batch_size = 32
+        batch_size = 500
         cmd = f"pie tag --device {device} --batch_size {batch_size} <{modele_latin},lemma,pos,Person,Numb,Tense,Case,Mood> {fichier_entree_txt}"
         subprocess.run(cmd.split())
         print("Lemmatisation du fichier ✓")
