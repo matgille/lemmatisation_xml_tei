@@ -83,41 +83,49 @@ def lemmatisation(fichier, moteur_xslt, langue):
     subprocess.run(["java", "-jar", moteur_xslt, chemin_vers_fichier, fichier_xsl, param_sortie])
     print("Tokénisation et régularisation du fichier ✓\nLemmatisation...")
     if langue == "castillan":
-        fichier_lemmatise = 'fichier_tokenise_regularise/txt/' + fichier_sans_extension + '_lemmatise' + '.txt'
+        fichier_lemmatise = f'fichier_tokenise_regularise/txt/{fichier_sans_extension}.lemmatized.txt'
         cmd_sh = ["sh", "analyze.sh", fichier_entree_txt,
                   fichier_lemmatise]  # je dois passer par un script externe car un subprocess tourne dans le vide,
         # pas trouvé pourquoi
-        subprocess.run(cmd_sh)  # analyze est dans /usr/bin
-        maliste = txt_to_liste(fichier_lemmatise)
+        subprocess.run(cmd_sh)
+        texte_lemmatise = txt_to_liste(fichier_lemmatise)
+        temoin_tokenise = f"fichier_tokenise_regularise/{fichier}"
         parser = etree.XMLParser(load_dtd=True,
-                                 resolve_entities=True)  # inutile car les entités ont déjà été résolues
-        # auparavant normalement, mais au cas où.
-        fichier_tokenise = "fichier_tokenise_regularise/" + fichier
-        f = etree.parse(fichier_tokenise, parser=parser)
-        root = f.getroot()
+                                 resolve_entities=True)
         tei = {'tei': 'http://www.tei-c.org/ns/1.0'}
-        groupe_words = "//tei:w"
+        f = etree.parse(temoin_tokenise, parser=parser)
+        root = f.getroot()
+        groupe_words = f"//node()[self::tei:w|self::tei:pc]"
         tokens = root.xpath(groupe_words, namespaces=tei)
-        fichier_lemmatise = fichier_tokenise
+        fichier_lemmatise = temoin_tokenise
         n = 1
-        for mot in tokens:
-            nombre_mots_precedents = int(mot.xpath("count(preceding::tei:w) + 1", namespaces=tei))
-            nombre_ponctuation_precedente = int(mot.xpath("count(preceding::tei:pc) + 1", namespaces=tei))
-            position_absolue_element = nombre_mots_precedents + nombre_ponctuation_precedente  # attention à
-            liste_correcte = maliste[position_absolue_element - 2]  # Ça marche bien si la lemmatisation se fait
+        for index, mot in enumerate(tokens):
+            # Ça marche bien si la lemmatisation se fait
             # sans retokenisation. Pour l'instant, ça bloque avec les chiffre (ochenta mill est fusionné). Voir
             # avec les devs de Freeling.
-            n += 1
             try:
-                lemme_position = liste_correcte[1]
-                pos_position = liste_correcte[2]
-            except:
-                print("Index error")
-                print(liste_correcte)
-                print(f"Position: {n}")
+                _, lemme_position, pos_position, *autres_analyses = texte_lemmatise[index]
+            except Exception as ecxp:
+                print(f"Error in file {fichier}: \n {ecxp}. \n Last token of the file must be a "
+                      f"punctuation mark. Otherwise, you should search for nested tei:w. Be careful of not adding "
+                      f"any tei:w in the header !")
+                print("You should check for empty tei:w in tokenized files.")
+                print(f"{mot}, {[previous_token.text for previous_token in tokens[index - 10: index]]}")
+                xml_id = mot.xpath("@xml:id", namespaces=tei)[0]
                 exit(0)
-            mot.set("lemma", lemme_position)
-            mot.set("pos", pos_position)
+
+            # On injecte les analyses.
+            if mot.xpath("@lemma") and mot.xpath("@pos"):  # si l'analyse est déjà présente (cas des lemmes
+                # mal analysés par Freeling et donc corrigés à la main en amont), ne rien faire
+                pass
+            # Sinon on ajoute l'analyse de Freeling.
+            elif mot.xpath("@lemma") and not mot.xpath("@pos"):
+                mot.set("pos", pos_position)
+            elif mot.xpath("@pos") and not mot.xpath("@lemma"):
+                mot.set("lemma", lemme_position)
+            else:
+                mot.set("lemma", lemme_position)
+                mot.set("pos", pos_position)
 
     elif langue == "latin":
         modele_latin = "model.tar"
@@ -176,8 +184,7 @@ def lemmatisation(fichier, moteur_xslt, langue):
             if morph:
                 mot.set("morph", morph)
 
-    with open(fichier_lemmatise, "w+") as sortie_xml:
-        print(fichier_lemmatise)
+    with open(f"resultat/{fichier_sans_extension}-lem.xml", "w") as sortie_xml:
         a_ecrire = etree.tostring(root, pretty_print=True, encoding='utf-8', xml_declaration=True).decode(
             'utf8')
         print("Saving file.")
