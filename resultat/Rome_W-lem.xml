@@ -1,0 +1,1312 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:id="Rome_W">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title>De regimine principum</title>
+      </titleStmt>
+      <publicationStmt>
+        <p>Transcrit par Laura Albiero, pour le projet PALM. Structuré en TEI par Matthias Gille
+               Levenson dans le cadre de ma thèse de doctorat.</p>
+      </publicationStmt>
+      <sourceDesc>
+        <p>Transcription de l'édition romaine de 1607.</p>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <refsDecl n="CTS">
+        <cRefPattern n="paragraph" matchPattern="(\w+).(\w+).(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@n='$1']/tei:div[@n='$2']/tei:div[@n='$3']/tei:p[@n='$4'])">
+          <p>This pointer pattern extracts book and part and chapter and paragraph</p>
+        </cRefPattern>
+        <cRefPattern n="chapter" matchPattern="(\w+).(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@n='$1']/tei:div[@n='$2']/tei:div[@n='$3'])">
+          <p>This pointer pattern extracts book and part and chapter</p>
+        </cRefPattern>
+        <cRefPattern n="part" matchPattern="(\w+).(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@n='$1']/tei:div[@n='$2'])">
+          <p>This pointer pattern extracts book and part</p>
+        </cRefPattern>
+        <cRefPattern n="book" matchPattern="(\w+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@n='$1'])">
+          <p>This pointer pattern extracts book</p>
+        </cRefPattern>
+      </refsDecl>
+      <refsDecl>
+        <refState unit="book"/>
+        <refState unit="part"/>
+        <refState unit="chapter"/>
+        <refState unit="paragraph"/>
+      </refsDecl>
+    </encodingDesc>
+  </teiHeader>
+  <text xml:lang="la">
+    <body>
+      <pb break="y" n="555"/>
+      <div type="partie" n="3">
+        <head>
+          <w xml:id="eKfm837" lemma="trecenti" pos="ADJcar" morph="CAS=Ind|NOMB.=Plur">TERTIA</w>
+          <w xml:id="dbPQdGe" lemma="pars" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">PARS</w>
+        </head>
+        <div type="livre" n="3">
+          <head>
+            <w xml:id="fg3V6An" lemma="tertius" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Tertii</w>
+            <w xml:id="bbzA82h" lemma="libris" pos="NOMpro" morph="CAS=Dat|NOMB.=Sing">Libri</w>
+            <w xml:id="oENf4Nb" lemma="de" pos="PRE">de</w>
+            <w xml:id="dlfbXpn" lemma="regimen" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">regimine</w>
+            <w xml:id="eCuXTdO" lemma="principus" pos="NOMpro" morph="CAS=Acc|NOMB.=Sing">Principum</w>
+            <pc>:</pc>
+            <w xml:id="zuDyvR8" lemma="in" pos="PRE">in</w>
+            <w xml:id="d5Xk7B0" lemma="qui" pos="PROrel" morph="CAS=Abl|NOMB.=Sing">qua</w>
+            <w xml:id="xfZSm8W" lemma="tracto" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">tractatur</w>
+            <w xml:id="qigkYv6" lemma="quomodo" pos="ADVint">quomodo</w>
+            <w xml:id="aVNLsus" lemma="rego" pos="VER" morph="CAS=Nom|MODE=Adj|NOMB.=Plur">regenda</w>
+            <w xml:id="hik463j" lemma="ciuitas" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">ciuitas</w>
+            <w xml:id="edRy7d5" lemma="sum" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">sit</w>
+            <w xml:id="oN8PO3b" lemma="aut" pos="CONcoo">aut</w>
+            <w xml:id="e4z1pNz" lemma="regnum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">regnum</w>
+            <w xml:id="kNCIIuM" lemma="tempus" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">tempore</w>
+            <w xml:id="pggatq2" lemma="bellum" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">belli</w>
+            <pc>.</pc>
+          </head>
+          <div type="chapitre" n="1" xml:id="Rome_W_3_3_1">
+            <head>
+              <w xml:id="punDzaP" lemma="quis" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Quid</w>
+              <w xml:id="jcrluiz" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="kt2eDeg" lemma="militia" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">militia</w>
+              <pc>,</pc>
+              <w xml:id="qmkCYqs" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="sN888YI" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="xl44Xrg" lemma="quis" pos="PROrel" morph="CAS=Nom|NOMB.=Plur">quae</w>
+              <w xml:id="vukaRWs" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="p7k46tH" lemma="institutum" pos="VER" morph="CAS=Acc|NOMB.=Plur|TEMPS=Perf">instituta</w>
+              <pc>,</pc>
+              <w xml:id="aPKwofg" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="bD95atK" lemma="quot" pos="PROint" morph="CAS=Ind">quot</w>
+              <w xml:id="bspURxq" lemma="omnis" pos="PROind" morph="CAS=Nom|NOMB.=Sing">omnis</w>
+              <w xml:id="vSqTuBn" lemma="bellicus" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">bellica</w>
+              <w xml:id="uO86WsZ" lemma="operatio" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">operatio</w>
+              <w xml:id="z93qSlQ" lemma="sub" pos="PRE">sub</w>
+              <w xml:id="cBvprDG" lemma="militia" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">militia</w>
+              <w xml:id="beUx2kx" lemma="contineo" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">continetur</w>
+              <pc>.</pc>
+              <w xml:id="bdfGtG4" lemma="capis" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Cap</w>
+              <pc>.</pc>
+              <w xml:id="n5eXTAG" lemma="unus" pos="ADJcar" morph="CAS=Acc|NOMB.=Sing">I</w>
+              <pc>.</pc>
+            </head>
+            <p n="Jl6hyqYStB">
+              <w xml:id="v2RQMWy" lemma="peracte" pos="NOMpro" morph="CAS=Dat|NOMB.=Plur">Peractis</w>
+              <w xml:id="pPKDmiE" lemma="pars" pos="NOMcom" morph="CAS=Abl|NOMB.=Plur">partibus</w>
+              <w xml:id="bAh9czi" lemma="duo" pos="ADJcar" morph="CAS=Abl|NOMB.=Plur">duabus</w>
+              <w xml:id="tEMx0GC" lemma="hic" pos="PROdem" morph="CAS=Gen|NOMB.=Sing">huius</w>
+              <w xml:id="p9SP19x" lemma="tertius" pos="ADJord" morph="CAS=Gen|NOMB.=Plur">tertii</w>
+              <w xml:id="zDRqIaD" lemma="liber" pos="NOMcom" morph="CAS=Nom|NOMB.=Plur">libri</w>
+              <pc>,</pc>
+              <w xml:id="j8rpo8D" lemma="quia" pos="CONsub">quia</w>
+              <w xml:id="fXF9qri" lemma="ostendo" pos="VER" morph="NOMB.=Sing|PERS.=3">ostensum</w>
+              <w xml:id="lEh2EOz" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="g20u2yo" lemma="quis" pos="PROint" morph="CAS=Acc|NOMB.=Sing">quid</w>
+              <w xml:id="rmBy6kG" lemma="sentio" pos="VER" morph="MODE=Ind|NOMB.=Plur|PERS.=3|TEMPS=Perf">senserunt</w>
+              <w xml:id="bTqgdqg" lemma="antiqui" pos="NOMcom" morph="CAS=Nom|NOMB.=Plur">antiqui</w>
+              <w xml:id="pFPgVVE" lemma="philosophus" pos="NOMpro" morph="CAS=Gen|NOMB.=Sing">Philosophi</w>
+              <w xml:id="o5ZhwV2" lemma="de" pos="PRE">de</w>
+              <w xml:id="elnCcng" lemma="regimen" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">regimine</w>
+              <w xml:id="dzWiknv" lemma="ciuitas" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">ciuitatis</w>
+              <w xml:id="oHVMdSB" lemma="regnum" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">regni</w>
+              <pc>,</pc>
+              <w xml:id="wKqGbBp" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="etjBv3A" lemma="determino" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Perf">determinatum</w>
+              <w xml:id="bUyFFVf" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="bxLU9Ou" lemma="qualiter" pos="ADVint">qualiter</w>
+              <w xml:id="y18JH6U" lemma="sum" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">sit</w>
+              <w xml:id="pv9OR0C" lemma="ciuitas" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">ciuitas</w>
+              <w xml:id="atJwl7I" lemma="atque" pos="CONcoo">atque</w>
+              <w xml:id="klxtlyX" lemma="regnum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">regnum</w>
+              <w xml:id="arcyXKs" lemma="tempus" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">tempore</w>
+              <w xml:id="jVhnsfC" lemma="pax" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">pacis</w>
+              <pc>.</pc>
+              <w xml:id="eoQCrP8" lemma="reliquus" pos="NOMpro" morph="CAS=Acc|NOMB.=Sing">Reliquum</w>
+              <w xml:id="wjRfJtW" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="srgl7nj" lemma="tracto" pos="VER" morph="MODE=Inf|TEMPS=Pres">tractare</w>
+              <w xml:id="qaFbwI9" lemma="de" pos="PRE">de</w>
+              <w xml:id="vNT7Slt" lemma="tempus" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">tempore</w>
+              <w xml:id="wG7V7ca" lemma="bellicus" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">bellico</w>
+              <pc>,</pc>
+              <w xml:id="kNtM2ak" lemma="ut" pos="CONsub">ut</w>
+              <w xml:id="urwIpEJ" lemma="scio" pos="VER" morph="MODE=Sub|NOMB.=Plur|PERS.=3|TEMPS=Pres">sciant</w>
+              <w xml:id="sga923Q" lemma="rex" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Reges</w>
+              <w xml:id="jAPhmhY" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="ozyXJoq" lemma="principe" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Principes</w>
+              <w xml:id="ckJvjAn" lemma="qualiter" pos="ADVint">qualiter</w>
+              <w xml:id="hsHWshE" lemma="committo" pos="VER" morph="CAS=Nom|MODE=Adj|NOMB.=Plur">committenda</w>
+              <w xml:id="pd9JlGV" lemma="sum" pos="VER" morph="MODE=Sub|NOMB.=Plur|PERS.=3|TEMPS=Pres">sint</w>
+              <w xml:id="aEYXMhe" lemma="bellum" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">bella</w>
+              <pc>.</pc>
+              <w xml:id="cKHYKBo" lemma="nas" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Nam</w>
+              <w xml:id="bIU3UDu" lemma="ut" pos="CONsub">ut</w>
+              <w xml:id="tDQPjSb" lemma="multum" pos="ADV" morph="NOMB.=Sing">plurimum</w>
+              <w xml:id="emRuOyw" lemma="bellum" pos="NOMcom" morph="CAS=Gen|NOMB.=Plur">bellorum</w>
+              <w xml:id="jZ4lJOY" lemma="industria" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">industria</w>
+              <pc>,</pc>
+              <w xml:id="y1aSZWQ" lemma="ut" pos="CONsub">ut</w>
+              <w xml:id="hciD7MR" lemma="pateo" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">patet</w>
+              <w xml:id="m02Cmo3" lemma="per" pos="PRE">per</w>
+              <w xml:id="v6fQ7uj" lemma="uegetius" pos="NOMpro" morph="CAS=Acc|NOMB.=Sing">Vegetium</w>
+              <w xml:id="uG6BYDC" lemma="in" pos="PRE">in</w>
+              <w xml:id="oTjHyAA" lemma="deus" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">De</w>
+              <w xml:id="uYHpbpC" lemma="res" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">re</w>
+              <w xml:id="rOYLe4w" lemma="militaris" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">militari</w>
+              <pc>,</pc>
+              <w xml:id="kKCrAK8" lemma="multum" pos="ADV" morph="NOMB.=Sing">plus</w>
+              <w xml:id="iLhQ3tc" lemma="confero" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">confert</w>
+              <w xml:id="vIU0dYL" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="o5ANhLJ" lemma="obtineo" pos="VER" morph="CAS=Acc|MODE=Adj|NOMB.=Sing">obtinendam</w>
+              <w xml:id="e8lIOp0" lemma="iictoria" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">victoriam</w>
+              <pc>,</pc>
+              <w xml:id="hBkPnxq" lemma="quam" pos="ADVint">quam</w>
+              <w xml:id="yUTpI9j" lemma="facio" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">faciat</w>
+              <w xml:id="hDpU4TW" lemma="multitudo" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">multitudo</w>
+              <w xml:id="xhPJIIt" lemma="ego" pos="ADV">vel</w>
+              <w xml:id="aopOdma" lemma="fortitudo" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">fortitudo</w>
+              <w xml:id="pcXs80S" lemma="bello" pos="VER" morph="CAS=Gen|MODE=Par|NOMB.=Plur|TEMPS=Pres">bellantium</w>
+              <pc>.</pc>
+              <w xml:id="uHn3Ut7" lemma="opus" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Opus</w>
+              <w xml:id="hWFK3Ah" lemma="autem" pos="CONcoo">autem</w>
+              <w xml:id="fzNOl0j" lemma="bellicus" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">bellicum</w>
+              <pc>(</pc>
+              <w xml:id="hBEIAuj" lemma="ut" pos="CONsub">ut</w>
+              <w xml:id="k8SH0Ub" lemma="pateo" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Fut">patebit</w>
+              <w xml:id="fEeD6hq" lemma="in" pos="PRE">in</w>
+              <w xml:id="hNNMBxv" lemma="sequor" pos="VER" morph="CAS=Abl|MODE=Ger|NOMB.=Sing">sequendo</w>
+              <pc>)</pc>
+              <w xml:id="xx2nzHz" lemma="contineo" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">continetur</w>
+              <w xml:id="lp2hKrR" lemma="sub" pos="PRE">sub</w>
+              <w xml:id="zZ6sSw0" lemma="militaris" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">militari</w>
+              <pc>:</pc>
+              <w xml:id="c7aqjD5" lemma="quare" pos="ADVint">quare</w>
+              <w xml:id="l6kwEq0" lemma="si" pos="CONsub">si</w>
+              <w xml:id="qsIZtN4" lemma="de" pos="PRE">de</w>
+              <w xml:id="buy9svt" lemma="opus" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">opere</w>
+              <w xml:id="vrkxwQP" lemma="bellicus" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">bellico</w>
+              <w xml:id="rayTwyZ" lemma="tracto" pos="VER" morph="MODE=Inf|TEMPS=Pres">tractare</w>
+              <w xml:id="doX3mi3" lemma="polo" pos="VER" morph="MODE=Ind|NOMB.=Plur|PERS.=1|TEMPS=Pres">volumus</w>
+              <pc>,</pc>
+              <w xml:id="xQi5Op6" lemma="iideo" pos="VER" morph="CAS=Nom|MODE=Adj|NOMB.=Sing">videndum</w>
+              <w xml:id="w2mJ1Kw" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="hT5PIpv" lemma="quis" pos="PROint" morph="CAS=Acc|NOMB.=Sing">quid</w>
+              <w xml:id="fhY14PZ" lemma="sum" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">sit</w>
+              <w xml:id="anqFCQm" lemma="militia" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">militia</w>
+              <pc>,</pc>
+              <w xml:id="wbINTCq" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="gXiF30t" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="sh517DU" lemma="quis" pos="PROint" morph="CAS=Acc|NOMB.=Sing">quid</w>
+              <w xml:id="wOjs5c0" lemma="sum" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">sit</w>
+              <w xml:id="pI80vdo" lemma="institutum" pos="VER" morph="CAS=Acc|NOMB.=Plur|TEMPS=Perf">instituta</w>
+              <pc>.</pc>
+              <w xml:id="tFKCHi7" lemma="sciendus" pos="NOMpro" morph="CAS=Acc|NOMB.=Sing">Sciendum</w>
+              <w xml:id="yVXqVA6" lemma="igitur" pos="CONcoo">igitur</w>
+              <w xml:id="vL7pLWY" lemma="militia" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">militiam</w>
+              <w xml:id="g7jxgQY" lemma="sum" pos="VER" morph="MODE=Inf|TEMPS=Pres">esse</w>
+              <w xml:id="wWwJ1Yb" lemma="quidam" pos="PROind" morph="CAS=Acc|NOMB.=Sing">quandam</w>
+              <w xml:id="drDYFYw" lemma="prudentia" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">prudentiam</w>
+              <pc>,</pc>
+              <w xml:id="n6IX5V8" lemma="siue" pos="CONsub">siue</w>
+              <w xml:id="uHczflt" lemma="quidam" pos="PROind" morph="CAS=Acc|NOMB.=Sing">quandam</w>
+              <w xml:id="vGzJ7rZ" lemma="species" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">speciem</w>
+              <w xml:id="q987RIm" lemma="prudentia" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">prudentiae</w>
+              <pc>.</pc>
+              <w xml:id="b8gNvf1" lemma="possumus" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Possumus</w>
+              <w xml:id="l5crKES" lemma="autem" pos="CONcoo">autem</w>
+              <pc>,</pc>
+              <w xml:id="bpLuSvd" lemma="quantum" pos="PROint" morph="NOMB.=Sing">quantum</w>
+              <w xml:id="qFx4trP" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="yFBJbLP" lemma="praesens" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">praesens</w>
+              <w xml:id="qjA02dI" lemma="specto" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">spectat</w>
+              <pc>,</pc>
+              <w xml:id="pfh3sdL" lemma="distinguo" pos="VER" morph="MODE=Inf|TEMPS=Pres">distinguere</w>
+              <w xml:id="qbO3cPL" lemma="quinque" pos="ADJcar" morph="CAS=Ind">quinque</w>
+              <w xml:id="tUJL9oH" lemma="species" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">species</w>
+              <w xml:id="mDJWOlw" lemma="prudentia" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">prudentiae</w>
+              <pc>:</pc>
+              <w xml:id="h9bNZF8" lemma="iidelico" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">videlicet</w>
+              <w xml:id="dvNt6RP" lemma="prudentia" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">prudentiam</w>
+              <w xml:id="hehNKlK" lemma="singularis" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">singularem</w>
+              <pc>,</pc>
+              <w xml:id="hL5qoSu" lemma="oeconomicus" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">oeconomicam</w>
+              <pc>,</pc>
+              <w xml:id="iIYj9r5" lemma="regnatiuus" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">regnatiuam</w>
+              <pc>,</pc>
+              <w xml:id="hsBwaDq" lemma="politica" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">politicam</w>
+              <w xml:id="caaIIgq" lemma="siue" pos="CONsub">siue</w>
+              <w xml:id="c2SBytS" lemma="ciuilis" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">ciuilem</w>
+              <pc>,</pc>
+              <w xml:id="vHOfeU6" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="gTajMjA" lemma="militaris" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">militarem</w>
+              <pc>.</pc>
+              <w xml:id="wnlAg7R" lemma="dicitur" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Dicitur</w>
+              <w xml:id="sf6Lxy6" lemma="enim" pos="CONcoo">enim</w>
+              <w xml:id="cqhVQIK" lemma="aliquis" pos="PROind" morph="CAS=Nom|NOMB.=Sing">aliquis</w>
+              <w xml:id="n6fBRrE" lemma="habeo" pos="VER" morph="MODE=Inf|TEMPS=Pres">habere</w>
+              <w xml:id="b4XzaWP" lemma="singularis" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">singularem</w>
+              <w xml:id="fJ2CBxW" lemma="ego" pos="ADV">vel</w>
+              <w xml:id="kEsy7Mc" lemma="particularis" pos="NOMcom" morph="MODE=Sub|NOMB.=Sing|PERS.=1|TEMPS=Impa">particularem</w>
+              <pb break="y" n="556"/>
+              <w xml:id="sFsG2GZ" lemma="prudentia" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">prudentiam</w>
+              <pc>,</pc>
+              <w xml:id="glZxs3B" lemma="quando" pos="ADVint">quando</w>
+              <w xml:id="tbGfycd" lemma="seipeo" pos="ADJqua" morph="NOMB.=Sing">seipsum</w>
+              <w xml:id="ilVibmh" lemma="scio" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">scit</w>
+              <w xml:id="tYXT6X9" lemma="rego" pos="VER" morph="MODE=Inf|TEMPS=Pres">regere</w>
+              <w xml:id="jS5Vf2h" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="qQGFdsS" lemma="guberno" pos="VER" morph="MODE=Inf|TEMPS=Pres">gubernare</w>
+              <pc>:</pc>
+              <w xml:id="klBapXB" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="aC1HLMQ" lemma="hic" pos="PROdem" morph="CAS=Nom|NOMB.=Plur">haec</w>
+              <w xml:id="xVE4sm5" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="oj4D8VK" lemma="paruus" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">minor</w>
+              <w xml:id="xakH8ab" lemma="prudentia" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">prudentia</w>
+              <pc>,</pc>
+              <w xml:id="ipZGljY" lemma="quam" pos="ADVint">quam</w>
+              <w xml:id="pGhaezG" lemma="oeconomicus" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">oeconomica</w>
+              <w xml:id="tb5Uzva" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="oual9Gp" lemma="regnatiuus" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">regnatiua</w>
+              <pc>.</pc>
+              <w xml:id="eu6dc6r" lemma="nas" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Nam</w>
+              <w xml:id="e7dXrvW" lemma="parum" pos="ADV">minus</w>
+              <w xml:id="fjfiasF" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <pc>,</pc>
+              <w xml:id="rv59PbE" lemma="scio" pos="VER" morph="MODE=Inf|TEMPS=Pres">scire</w>
+              <w xml:id="meNbOHG" lemma="rego" pos="VER" morph="MODE=Inf|TEMPS=Pres">regere</w>
+              <w xml:id="pq8ZUZ8" lemma="seipeo" pos="ADJqua" morph="NOMB.=Sing">seipsum</w>
+              <pc>,</pc>
+              <w xml:id="zXhUB4c" lemma="quam" pos="ADVint">quam</w>
+              <w xml:id="agQVjp0" lemma="scio" pos="VER" morph="MODE=Inf|TEMPS=Pres">scire</w>
+              <w xml:id="ySai4vu" lemma="rego" pos="VER" morph="MODE=Inf|TEMPS=Pres">regere</w>
+              <w xml:id="fOpcAjH" lemma="familia" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">familiam</w>
+              <pc>,</pc>
+              <w xml:id="cx7WIHi" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="zeJWHf8" lemma="ciuitas" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">ciuitatem</w>
+              <pc>,</pc>
+              <w xml:id="afdD5Wa" lemma="aut" pos="CONcoo">aut</w>
+              <w xml:id="qGqoUpK" lemma="regnum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">regnum</w>
+              <pc>.</pc>
+              <w xml:id="fcOKQF3" lemma="secundus" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Secunda</w>
+              <w xml:id="gdUYlAi" lemma="species" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">species</w>
+              <w xml:id="wiTIYua" lemma="prudentia" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">prudentiae</w>
+              <w xml:id="oJI1oTT" lemma="dico" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">dicitur</w>
+              <w xml:id="nTh6uzK" lemma="sum" pos="VER" morph="MODE=Inf|TEMPS=Pres">esse</w>
+              <w xml:id="oyYUBK3" lemma="oeconomicus" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">oeconomica</w>
+              <pc>.</pc>
+              <w xml:id="p9r60KX" lemma="nas" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Nam</w>
+              <w xml:id="dbjNRy0" lemma="prudens" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">prudens</w>
+              <w xml:id="riPieWQ" lemma="ex" pos="PRE">ex</w>
+              <w xml:id="wGG5tGi" lemma="hic" pos="PROdem" morph="CAS=Nom|NOMB.=Sing">hoc</w>
+              <w xml:id="nkWTukd" lemma="aliquis" pos="PROind" morph="CAS=Nom|NOMB.=Sing">aliquis</w>
+              <w xml:id="xU7P3ma" lemma="dico" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">dicitur</w>
+              <pc>,</pc>
+              <w xml:id="pFz4nvV" lemma="ut" pos="CONsub">ut</w>
+              <w xml:id="z9Eosst" lemma="pateo" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">patet</w>
+              <w xml:id="tetvHUG" lemma="ex" pos="PRE">ex</w>
+              <w xml:id="d262P8q" lemma="septimus" pos="ADJord" morph="CAS=Abl|NOMB.=Sing">septimo</w>
+              <w xml:id="cewNc7j" lemma="ethici" pos="NOMpro" morph="CAS=Gen|NOMB.=Plur">Ethicorum</w>
+              <pc>:</pc>
+              <w xml:id="xtPtIBv" lemma="quia" pos="CONsub">quia</w>
+              <w xml:id="mT9Kis6" lemma="scio" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">scit</w>
+              <w xml:id="xvdieLk" lemma="bene" pos="ADV">bene</w>
+              <w xml:id="mqxeCjQ" lemma="consilior" pos="VER" morph="MODE=Inf|TEMPS=Pres">consiliari</w>
+              <pc>,</pc>
+              <w xml:id="dfwocb0" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="kGUvXUq" lemma="bene" pos="ADV">bene</w>
+              <w xml:id="yZHbnAb" lemma="dirigo" pos="VER" morph="MODE=Inf|TEMPS=Pres">dirigere</w>
+              <w xml:id="qlJ8vWF" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="mc19IRT" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <w xml:id="pIQc7XL" lemma="finis" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">finem</w>
+              <pc>:</pc>
+              <w xml:id="a722lpG" lemma="ubi" pos="ADVint">ubi</w>
+              <w xml:id="cm0JBuN" lemma="ergo" pos="CONcoo">ergo</w>
+              <w xml:id="eycjytP" lemma="reperio" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">reperitur</w>
+              <w xml:id="n5D6Uw3" lemma="alius" pos="PROind" morph="CAS=Nom|NOMB.=Plur">alia</w>
+              <w xml:id="fq5TCbT" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="uvAxpVa" lemma="alius" pos="PROind" morph="CAS=Nom|NOMB.=Plur">alia</w>
+              <w xml:id="s5nBBSN" lemma="ratio" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">ratio</w>
+              <w xml:id="njdkj5D" lemma="bonus" pos="NOMcom" morph="CAS=Nom|NOMB.=Plur">boni</w>
+              <pc>,</pc>
+              <w xml:id="yNn0Dw2" lemma="ibi" pos="ADV">ibi</w>
+              <w xml:id="s2GB4SD" lemma="reperio" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">reperitur</w>
+              <w xml:id="lkNF3O1" lemma="alius" pos="PROind" morph="CAS=Nom|NOMB.=Plur">alia</w>
+              <w xml:id="gBqU5qW" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="obbqVjD" lemma="alius" pos="PROind" morph="CAS=Nom|NOMB.=Plur">alia</w>
+              <w xml:id="d5TSnhV" lemma="species" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">species</w>
+              <w xml:id="ylkVfn7" lemma="prudentia" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">prudentiae</w>
+              <pc>:</pc>
+              <w xml:id="lFQuY2F" lemma="quare" pos="ADVint">quare</w>
+              <w xml:id="qsNn3zy" lemma="cum" pos="CONsub">cum</w>
+              <w xml:id="bck5dIu" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <w xml:id="qZxqLLi" lemma="domesticus" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">domesticum</w>
+              <pc>,</pc>
+              <w xml:id="uzWh9OG" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="hP41Y2K" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <w xml:id="gOBFqb1" lemma="totus" pos="PROind" morph="CAS=Gen|NOMB.=Sing">totius</w>
+              <w xml:id="oq6gjJT" lemma="familia" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">familiae</w>
+              <w xml:id="reVIrEu" lemma="sum" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">sit</w>
+              <w xml:id="tDmvl5i" lemma="alius" pos="PROind" morph="CAS=Acc|NOMB.=Sing">aliud</w>
+              <w xml:id="gtHPlMv" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <w xml:id="yUKsdXt" lemma="ab" pos="PRE">a</w>
+              <w xml:id="urowjUe" lemma="bonus" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">bono</w>
+              <w xml:id="sESb5Yt" lemma="aliquis" pos="PROind" morph="CAS=Gen|NOMB.=Sing">alicuius</w>
+              <w xml:id="bTK9FzI" lemma="singularis" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">singularis</w>
+              <w xml:id="diIiOes" lemma="persona" pos="NOMcom" morph="CAS=Dat|NOMB.=Sing">personae</w>
+              <pc>,</pc>
+              <w xml:id="eW4JktH" lemma="sicut" pos="ADVrel">sicut</w>
+              <w xml:id="eZ7NBcv" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <w xml:id="fBAPqXo" lemma="communis" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">commune</w>
+              <w xml:id="eGl1o4m" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="poUQhc8" lemma="alius" pos="PROind" morph="CAS=Acc|NOMB.=Sing">aliud</w>
+              <w xml:id="mSuehVs" lemma="ab" pos="PRE">a</w>
+              <w xml:id="kDVw41K" lemma="bonus" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">bono</w>
+              <w xml:id="dTsoDwk" lemma="aliquis" pos="PROind" morph="CAS=Abl|NOMB.=Sing">aliquo</w>
+              <w xml:id="ggOOpec" lemma="singularis" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">singulari</w>
+              <pc>,</pc>
+              <w xml:id="nUWrvUp" lemma="oeconomicus" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">oeconomicam</w>
+              <w xml:id="t10jowM" lemma="prudentia" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">prudentiam</w>
+              <pc>,</pc>
+              <w xml:id="ocENxIH" lemma="per" pos="PRE">per</w>
+              <w xml:id="tPRNH4Y" lemma="quam" pos="ADVint">quam</w>
+              <w xml:id="sRv4Krm" lemma="quis" pos="PROint" morph="CAS=Nom|NOMB.=Sing">quis</w>
+              <w xml:id="vEM4erF" lemma="scio" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">scit</w>
+              <w xml:id="qWpPntK" lemma="rego" pos="VER" morph="MODE=Inf|TEMPS=Pres">regere</w>
+              <w xml:id="jApkvw4" lemma="domus" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">domum</w>
+              <w xml:id="cEMReMd" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="rxCoK37" lemma="familia" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">familiam</w>
+              <pc>,</pc>
+              <w xml:id="nfcpK7k" lemma="oportet" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">oportet</w>
+              <w xml:id="wc2raVb" lemma="sum" pos="VER" morph="MODE=Inf|TEMPS=Pres">esse</w>
+              <w xml:id="zxyXebK" lemma="alius" pos="PROind" morph="CAS=Acc|NOMB.=Sing">aliam</w>
+              <w xml:id="mzXwr2f" lemma="ab" pos="PRE">a</w>
+              <w xml:id="mfjcnrZ" lemma="prudentia" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">prudentia</w>
+              <pc>,</pc>
+              <w xml:id="fJDlSEt" lemma="qui" pos="PROrel" morph="CAS=Abl|NOMB.=Sing">qua</w>
+              <w xml:id="fIMPbCQ" lemma="quis" pos="PROint" morph="CAS=Nom|NOMB.=Sing">quis</w>
+              <w xml:id="xGZZb5b" lemma="nosco" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Perf">nouit</w>
+              <w xml:id="tkCiOEd" lemma="seipeo" pos="ADJqua" morph="NOMB.=Sing">seipsum</w>
+              <w xml:id="rRv6XGp" lemma="rego" pos="VER" morph="MODE=Inf|TEMPS=Pres">regere</w>
+              <pc>.</pc>
+              <w xml:id="oxEPlJj" lemma="tertia" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Tertia</w>
+              <w xml:id="zVtXxEC" lemma="species" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">species</w>
+              <w xml:id="v7zO82p" lemma="prudentia" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">prudentiae</w>
+              <w xml:id="uGcfjxd" lemma="dico" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">dicitur</w>
+              <w xml:id="tTSXseQ" lemma="sum" pos="VER" morph="MODE=Inf|TEMPS=Pres">esse</w>
+              <w xml:id="tBPPqC9" lemma="regnatiuus" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">regnatiua</w>
+              <w xml:id="z5qiv1s" lemma="ego" pos="ADV">vel</w>
+              <w xml:id="nfuuz9b" lemma="lex" pos="NOMcom" morph="CAS=Gen|NOMB.=Plur">legum</w>
+              <w xml:id="vQaiCeP" lemma="positiuum" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">positiua</w>
+              <pc>.</pc>
+              <w xml:id="uk1k2xz" lemma="nas" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Nam</w>
+              <w xml:id="e1P76xQ" lemma="sicut" pos="ADVrel">sicut</w>
+              <w xml:id="z3F8pnf" lemma="persona" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">persona</w>
+              <w xml:id="mugSCZ1" lemma="aliquis" pos="PROind" morph="CAS=Nom|NOMB.=Sing">aliqua</w>
+              <w xml:id="aF1CWQj" lemma="singularis" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">singularis</w>
+              <w xml:id="nhLyfIZ" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="eECxhDf" lemma="pars" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">pars</w>
+              <w xml:id="vcx4tPd" lemma="domus" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">domus</w>
+              <pc>,</pc>
+              <w xml:id="kbWunuy" lemma="ita" pos="ADV">ita</w>
+              <w xml:id="fgvg5Xw" lemma="domus" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">domus</w>
+              <w xml:id="qCCligT" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="q5y2msb" lemma="pars" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">pars</w>
+              <w xml:id="wN7FOD6" lemma="ciuitas" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">ciuitatis</w>
+              <pc>,</pc>
+              <w xml:id="w1FhvA8" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="lD2wdbz" lemma="regnum" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">regni</w>
+              <pc>:</pc>
+              <w xml:id="xV8Qa3j" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="ilWWeMf" lemma="sicut" pos="ADVrel">sicut</w>
+              <w xml:id="nb26Vnz" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <w xml:id="p7D5nbT" lemma="communis" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">commune</w>
+              <w xml:id="jMWVAXd" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="oFyOiwW" lemma="alius" pos="PROind" morph="CAS=Acc|NOMB.=Sing">aliud</w>
+              <w xml:id="tsYwhlb" lemma="ab" pos="PRE">a</w>
+              <w xml:id="oCZEaq8" lemma="bonus" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">bono</w>
+              <w xml:id="zHEPOb6" lemma="aliquis" pos="PROind" morph="CAS=Gen|NOMB.=Sing">alicuius</w>
+              <w xml:id="pTNhcRk" lemma="singularis" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">singularis</w>
+              <w xml:id="ySZu4t5" lemma="persona" pos="NOMcom" morph="CAS=Dat|NOMB.=Sing">personae</w>
+              <pc>,</pc>
+              <w xml:id="hsK0oj6" lemma="sic" pos="ADV">sic</w>
+              <w xml:id="mGgIRLo" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <w xml:id="cevQTTL" lemma="ciuitas" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">ciuitatis</w>
+              <w xml:id="cJV2muF" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="oNy9i57" lemma="regnum" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">regni</w>
+              <w xml:id="rdhE2bG" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="hog7Cn7" lemma="alius" pos="PROind" morph="CAS=Acc|NOMB.=Sing">aliud</w>
+              <w xml:id="k0lJVTd" lemma="ab" pos="PRE">a</w>
+              <w xml:id="d1VZ7JQ" lemma="bonus" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">bono</w>
+              <w xml:id="appCYhh" lemma="domesticus" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">domestico</w>
+              <pc>.</pc>
+              <w xml:id="d7nJGlP" lemma="prudentia" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Prudentia</w>
+              <w xml:id="t6Htk1B" lemma="ergo" pos="CONcoo">ergo</w>
+              <w xml:id="sM0uGi8" lemma="regnatiuus" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">regnatiua</w>
+              <w xml:id="oE6ShrX" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="sUlIWfg" lemma="lex" pos="NOMcom" morph="CAS=Gen|NOMB.=Plur">legum</w>
+              <w xml:id="mxTjfhJ" lemma="positiuum" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">positiua</w>
+              <pc>,</pc>
+              <w xml:id="asLcTN3" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">idest</w>
+              <w xml:id="hKmDthV" lemma="prudentia" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">prudentia</w>
+              <w xml:id="dI20vGM" lemma="quis" pos="PROrel" morph="CAS=Nom|NOMB.=Plur">quae</w>
+              <w xml:id="mYIhlQU" lemma="requiro" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">requiritur</w>
+              <w xml:id="ueiEZfb" lemma="in" pos="PRE">in</w>
+              <w xml:id="uLb3wH1" lemma="rex" pos="NOMpro" morph="CAS=Voc|NOMB.=Sing">Rege</w>
+              <w xml:id="ayOHWQk" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="q0SooP6" lemma="principo" pos="VER" morph="CAS=Abl|MODE=Par|NOMB.=Sing|TEMPS=Pres">principante</w>
+              <pc>,</pc>
+              <w xml:id="vgSUUKe" lemma="quis" pos="PROint" morph="CAS=Gen|NOMB.=Sing">cuius</w>
+              <w xml:id="hjbCJVQ" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="hGKXiWH" lemma="lex" pos="VER" morph="CAS=Acc|NOMB.=Plur">leges</w>
+              <w xml:id="s3WXNc8" lemma="fero" pos="VER" morph="MODE=Inf|TEMPS=Pres">ferre</w>
+              <pc>,</pc>
+              <w xml:id="vmfROJE" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="hjUSCtM" lemma="rego" pos="VER" morph="MODE=Inf|TEMPS=Pres">regere</w>
+              <w xml:id="ozSkuw0" lemma="regnum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">regnum</w>
+              <w xml:id="khbmQna" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="l9hoiA7" lemma="ciuitas" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">ciuitatem</w>
+              <pc>,</pc>
+              <w xml:id="ol7jZZr" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="bDmIWAK" lemma="alius" pos="PROind" morph="CAS=Nom|NOMB.=Plur">alia</w>
+              <w xml:id="xbK6EHS" lemma="ab" pos="PRE">a</w>
+              <w xml:id="hhekmM1" lemma="prudentia" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">prudentia</w>
+              <w xml:id="s4SDkaP" lemma="oeconomicus" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">oeconomica</w>
+              <w xml:id="t9Rzfs4" lemma="quis" pos="PROrel" morph="CAS=Nom|NOMB.=Plur">quae</w>
+              <w xml:id="jhSfW47" lemma="requiro" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">requiritur</w>
+              <w xml:id="iEogZsY" lemma="in" pos="PRE">in</w>
+              <w xml:id="vbTMDqN" lemma="patrefamilia" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">patrefamilias</w>
+              <pc>,</pc>
+              <w xml:id="jFPD7qZ" lemma="quis" pos="PROint" morph="CAS=Gen|NOMB.=Sing">cuius</w>
+              <w xml:id="wiDIyto" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="yqa84kO" lemma="guberno" pos="VER" morph="MODE=Inf|TEMPS=Pres">gubernare</w>
+              <w xml:id="oWcJUHK" lemma="domus" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">domum</w>
+              <pc>:</pc>
+              <w xml:id="elOMDFF" lemma="immo" pos="ADV">immo</w>
+              <w xml:id="zaU0unL" lemma="quanto" pos="ADVint">quanto</w>
+              <w xml:id="gG2qrYV" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <w xml:id="ip8wmmH" lemma="ciuitas" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">ciuitatis</w>
+              <w xml:id="siTzioV" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="egTCxYh" lemma="regnum" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">regni</w>
+              <w xml:id="voSl0IR" lemma="excedo" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">excedit</w>
+              <w xml:id="m61kxv8" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <w xml:id="kfS5Ceu" lemma="domesticus" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">domesticum</w>
+              <pc>,</pc>
+              <w xml:id="fCUkCri" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="qCEz1VT" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <w xml:id="dN6cgdC" lemma="aliquis" pos="PROind" morph="CAS=Gen|NOMB.=Sing">alicuius</w>
+              <w xml:id="x5bMqjx" lemma="particulor" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=2|TEMPS=Pres">particularis</w>
+              <w xml:id="tyt5NMs" lemma="persona" pos="NOMcom" morph="CAS=Dat|NOMB.=Sing">personae</w>
+              <pc>,</pc>
+              <w xml:id="xZlRXZy" lemma="tantus" pos="PROdem" morph="CAS=Abl|NOMB.=Sing">tanto</w>
+              <w xml:id="n0YD1bh" lemma="prudentia" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">prudentia</w>
+              <w xml:id="qyXtFHv" lemma="quis" pos="PROrel" morph="CAS=Nom|NOMB.=Plur">quae</w>
+              <w xml:id="rLuaxTA" lemma="requiro" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">requiritur</w>
+              <w xml:id="vhZwKCb" lemma="in" pos="PRE">in</w>
+              <w xml:id="ejDXNIq" lemma="rex" pos="NOMpro" morph="CAS=Voc|NOMB.=Sing">Rege</w>
+              <w xml:id="t0iQBPJ" lemma="oportet" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">oportet</w>
+              <w xml:id="qvHNuQZ" lemma="excedo" pos="VER" morph="MODE=Inf|TEMPS=Pres">excedere</w>
+              <w xml:id="gm2BNMz" lemma="prudentia" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">prudentiam</w>
+              <w xml:id="egYkZdO" lemma="patrisfamilia" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">patrisfamilias</w>
+              <pc>,</pc>
+              <w xml:id="zWSbrpy" lemma="ego" pos="ADV">vel</w>
+              <w xml:id="ixSPocs" lemma="prudentia" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">prudentiam</w>
+              <w xml:id="bxSjEip" lemma="aliquis" pos="PROind" morph="CAS=Gen|NOMB.=Sing">alicuius</w>
+              <w xml:id="ayr6YFe" lemma="particulor" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=2|TEMPS=Pres">particularis</w>
+              <w xml:id="jgdfjWA" lemma="homo" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">hominis</w>
+              <pc>.</pc>
+              <w xml:id="fwrAxgc" lemma="propter" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Propter</w>
+              <w xml:id="gxnfVv8" lemma="qui" pos="PROrel" morph="NOMB.=Sing">quod</w>
+              <w xml:id="yrZiVuS" lemma="bene" pos="ADV">bene</w>
+              <w xml:id="qqiKL3d" lemma="dico" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Perf">dictum</w>
+              <w xml:id="gZAh5BU" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="j3eN3tO" lemma="qui" pos="PROrel" morph="NOMB.=Sing">quod</w>
+              <w xml:id="w9WkJfu" lemma="aio" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">ait</w>
+              <w xml:id="dwxyjn2" lemma="uegetius" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Vegetius</w>
+              <w xml:id="dTh1cDT" lemma="in" pos="PRE">in</w>
+              <w xml:id="yZeFUaB" lemma="primus" pos="ADJord" morph="CAS=Abl|NOMB.=Sing">primo</w>
+              <w xml:id="lzuGFqX" lemma="liber" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">libro</w>
+              <w xml:id="vmwE1vs" lemma="de" pos="PRE">de</w>
+              <w xml:id="tIFFKA2" lemma="res" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">re</w>
+              <w xml:id="vK3Bo8S" lemma="militaris" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">militari</w>
+              <pc>,</pc>
+              <w xml:id="nGtWwMO" lemma="qui" pos="PROrel" morph="NOMB.=Sing">quod</w>
+              <w xml:id="trLLm1W" lemma="neque" pos="CONcoo">neque</w>
+              <w xml:id="djimxJf" lemma="quisquam" pos="PROind" morph="CAS=Acc|NOMB.=Sing">quemquam</w>
+              <w xml:id="hL5npL1" lemma="magis" pos="ADV">magis</w>
+              <w xml:id="uBqfHYd" lemma="decet" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">decet</w>
+              <w xml:id="wYqe0eY" lemma="ego" pos="ADV">vel</w>
+              <w xml:id="xaKtAOW" lemma="bonus" pos="ADJqua" morph="CAS=Acc|NOMB.=Plur">meliora</w>
+              <w xml:id="rpSqhGj" lemma="scio" pos="VER" morph="MODE=Inf|TEMPS=Pres">scire</w>
+              <pc>,</pc>
+              <w xml:id="tffK0tp" lemma="ego" pos="ADV">vel</w>
+              <w xml:id="yTiOI7U" lemma="multus" pos="ADJqua" morph="CAS=Acc|NOMB.=Plur">plura</w>
+              <w xml:id="gOe1SlL" lemma="quam" pos="ADVint">quam</w>
+              <w xml:id="mIF4dVA" lemma="princeps" pos="NOMpro" morph="CAS=Acc|NOMB.=Sing">Principem</w>
+              <pc>,</pc>
+              <w xml:id="aRTgGc3" lemma="quis" pos="PROint" morph="CAS=Gen|NOMB.=Sing">cuius</w>
+              <w xml:id="lX6UzGF" lemma="doctrina" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">doctrina</w>
+              <w xml:id="aYJZUES" lemma="omnis" pos="PROind" morph="CAS=Dat|NOMB.=Plur">omnibus</w>
+              <w xml:id="cQOLjM8" lemma="prosum" pos="VER" morph="MODE=Inf|TEMPS=Pres">prodesse</w>
+              <w xml:id="v5MDYN7" lemma="possum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">potest</w>
+              <pc>.</pc>
+              <w xml:id="xrVSj8E" lemma="indus" pos="NOMpro" morph="CAS=Voc|NOMB.=Sing">Inde</w>
+              <w xml:id="feE6hdc" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="wH3pWvV" lemma="igitur" pos="CONcoo">igitur</w>
+              <w xml:id="o16ysLu" lemma="qui" pos="PROrel" morph="NOMB.=Sing">quod</w>
+              <w xml:id="ctiUCpZ" lemma="in" pos="PRE">in</w>
+              <w xml:id="rRfHzjd" lemma="erudio" pos="VER" morph="CAS=Abl|MODE=Ger|NOMB.=Sing">erudiendo</w>
+              <w xml:id="eU0eJjZ" lemma="rex" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Reges</w>
+              <w xml:id="aX0EbW3" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="k2NnBkp" lemma="principe" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Principes</w>
+              <pc>,</pc>
+              <w xml:id="cUiSQIl" lemma="hic" pos="PROdem" morph="CAS=Acc|NOMB.=Sing">hunc</w>
+              <w xml:id="x2lr4OZ" lemma="totalis" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">totalem</w>
+              <w xml:id="bV8l8x6" lemma="liber" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">librum</w>
+              <w xml:id="dPG7XUv" lemma="diuido" pos="VER" morph="MODE=Ind|NOMB.=Plur|PERS.=1|TEMPS=Perf">diuisimus</w>
+              <w xml:id="zfGpR1c" lemma="in" pos="PRE">in</w>
+              <w xml:id="w81AzCH" lemma="tres" pos="ADJcar" morph="CAS=Nom|NOMB.=Plur">tres</w>
+              <w xml:id="nT5oq1f" lemma="liber" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">libros</w>
+              <pc>.</pc>
+              <w xml:id="oiD2R5Q" lemma="quia" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Quia</w>
+              <w xml:id="woFYjpf" lemma="in" pos="PRE">in</w>
+              <w xml:id="sjsJd7M" lemma="primus" pos="ADJord" morph="CAS=Abl|NOMB.=Sing">primo</w>
+              <w xml:id="zqAZtN3" lemma="liber" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">libro</w>
+              <w xml:id="j0Z5aiX" lemma="doceo" pos="VER" morph="MODE=Ind|NOMB.=Plur|PERS.=1|TEMPS=Perf">docuimus</w>
+              <w xml:id="xYbXGO0" lemma="rex" pos="NOMpro" morph="CAS=Acc|NOMB.=Sing">Regem</w>
+              <w xml:id="lOBk4jP" lemma="sum" pos="VER" morph="MODE=Inf|TEMPS=Pres">esse</w>
+              <w xml:id="xixka1p" lemma="prudens" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">prudentem</w>
+              <w xml:id="pCVfaFs" lemma="prout" pos="ADVrel">prout</w>
+              <w xml:id="fJ6BXLB" lemma="rex" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Rex</w>
+              <w xml:id="oQ6okGj" lemma="aut" pos="CONcoo">aut</w>
+              <w xml:id="gxKBtRW" lemma="princeps" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Princeps</w>
+              <w xml:id="l5r5yzA" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="fLPeps4" lemma="quidam" pos="PROind" morph="CAS=Nom|NOMB.=Plur">quaedam</w>
+              <w xml:id="wNVCCHx" lemma="persona" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">persona</w>
+              <w xml:id="tlOLuMi" lemma="in" pos="PRE">in</w>
+              <w xml:id="yS6r0OA" lemma="sui" pos="PROref" morph="CAS=Acc|NOMB.=Sing">se</w>
+              <pc>,</pc>
+              <w xml:id="xzOYglE" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="gQeF2gd" lemma="prout" pos="ADVrel">prout</w>
+              <pb break="y" n="557"/>
+              <w xml:id="uXMfD3y" lemma="habeo" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">habet</w>
+              <w xml:id="ydBu0KC" lemma="seipeo" pos="ADJqua" morph="NOMB.=Sing">seipsum</w>
+              <w xml:id="nGzzz8y" lemma="rego" pos="VER" morph="MODE=Inf|TEMPS=Pres">regere</w>
+              <pc>:</pc>
+              <w xml:id="pQ1ntVQ" lemma="inus" pos="ADJcar" morph="CAS=Nom|NOMB.=Sing">In</w>
+              <w xml:id="oCuC6Sf" lemma="secundus" pos="ADJord" morph="CAS=Abl|NOMB.=Sing">secundo</w>
+              <w xml:id="h2XpmGz" lemma="sero" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=1|TEMPS=Fut">vero</w>
+              <w xml:id="tVzpew7" lemma="doceo" pos="VER" morph="MODE=Ind|NOMB.=Plur|PERS.=1|TEMPS=Perf">docuimus</w>
+              <w xml:id="i8B83Yn" lemma="ipse" pos="PROdem" morph="CAS=Acc|NOMB.=Sing">ipsum</w>
+              <w xml:id="dkkgdYp" lemma="ut" pos="CONsub">ut</w>
+              <w xml:id="i7CdM1c" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="n4mMk4j" lemma="paterfamilia" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">paterfamilias</w>
+              <pc>,</pc>
+              <w xml:id="gEEtCtk" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="b8XxKYr" lemma="ut" pos="CONsub">ut</w>
+              <w xml:id="sPQ1gqj" lemma="habeo" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">habet</w>
+              <w xml:id="qnVR56H" lemma="dispenso" pos="VER" morph="MODE=Inf|TEMPS=Pres">dispensare</w>
+              <w xml:id="nc6LUdY" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">bona</w>
+              <w xml:id="h7A5sWP" lemma="domesticus" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">domestica</w>
+              <pc>.</pc>
+              <w xml:id="lR4i7RA" lemma="inus" pos="ADJcar" morph="CAS=Nom|NOMB.=Sing">In</w>
+              <w xml:id="p4NoeBy" lemma="tertius" pos="ADJord" morph="NOMB.=Sing">tertio</w>
+              <w xml:id="gGortGK" lemma="sero" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=1|TEMPS=Fut">vero</w>
+              <w xml:id="fYMUPoq" lemma="erudio" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">eruditur</w>
+              <w xml:id="rcG1JLB" lemma="rex" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Rex</w>
+              <w xml:id="h8O0Llx" lemma="aut" pos="CONcoo">aut</w>
+              <w xml:id="thxguVN" lemma="princeps" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Princeps</w>
+              <w xml:id="e364YfP" lemma="ut" pos="CONsub">ut</w>
+              <w xml:id="tx6zvNI" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="qk143Ym" lemma="caput" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">caput</w>
+              <w xml:id="gpu68df" lemma="regnum" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">regni</w>
+              <w xml:id="yf3NCOR" lemma="aut" pos="CONcoo">aut</w>
+              <w xml:id="tJ3AlwX" lemma="principatus" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">principatus</w>
+              <pc>,</pc>
+              <w xml:id="lxVCzdc" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="tnsNG3u" lemma="ut" pos="CONsub">ut</w>
+              <w xml:id="iTimeF8" lemma="habeo" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">habet</w>
+              <w xml:id="k9U4sXD" lemma="fero" pos="VER" morph="MODE=Inf|TEMPS=Pres">ferre</w>
+              <w xml:id="asAAyGt" lemma="lex" pos="VER" morph="CAS=Acc|NOMB.=Plur">leges</w>
+              <w xml:id="nMAmTvq" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="wOh5geD" lemma="guberno" pos="VER" morph="MODE=Inf|TEMPS=Pres">gubernare</w>
+              <w xml:id="hv2kbkq" lemma="ciuis" pos="NOMcom" morph="CAS=Nom|NOMB.=Plur">ciues</w>
+              <pc>.</pc>
+              <w xml:id="nS3nUEx" lemma="omnis" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Omnes</w>
+              <w xml:id="giRgfJs" lemma="autem" pos="CONcoo">autem</w>
+              <w xml:id="muBG8qX" lemma="tres" pos="ADJcar" morph="CAS=Nom|NOMB.=Plur">tres</w>
+              <w xml:id="e8DkED6" lemma="prudentia" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">prudentias</w>
+              <w xml:id="jwbK4Zc" lemma="decet" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">decet</w>
+              <w xml:id="xyS2GUS" lemma="habeo" pos="VER" morph="MODE=Inf|TEMPS=Pres">habere</w>
+              <w xml:id="vXpIRfu" lemma="rex" pos="NOMpro" morph="CAS=Acc|NOMB.=Sing">Regem</w>
+              <pc>,</pc>
+              <w xml:id="l9aEZ5j" lemma="iidelico" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">videlicet</w>
+              <w xml:id="vSgwy0x" lemma="particularis" pos="NOMcom" morph="MODE=Sub|NOMB.=Sing|PERS.=1|TEMPS=Impa">particularem</w>
+              <pc>,</pc>
+              <w xml:id="pUvCMQj" lemma="oeconomicus" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">oeconomicam</w>
+              <w xml:id="mGNYEvb" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="hPRyTHt" lemma="regnatiuus" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">regnatiuam</w>
+              <pc>.</pc>
+              <w xml:id="n6Bkicv" lemma="quarta" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Quarta</w>
+              <w xml:id="k8TV4BB" lemma="species" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">species</w>
+              <w xml:id="fhvIgO6" lemma="prudentia" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">prudentiae</w>
+              <w xml:id="pF1o2Zg" lemma="dico" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">dicitur</w>
+              <w xml:id="u00Y9La" lemma="sum" pos="VER" morph="MODE=Inf|TEMPS=Pres">esse</w>
+              <w xml:id="aXKSkq9" lemma="politicus" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">politica</w>
+              <w xml:id="wdb4Mfl" lemma="siue" pos="CONsub">siue</w>
+              <w xml:id="v8Pfl8x" lemma="ciuilis" pos="ADJqua" morph="CAS=Gen|NOMB.=Sing">ciuilis</w>
+              <pc>.</pc>
+              <w xml:id="pFRUqfW" lemma="nas" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Nam</w>
+              <w xml:id="faScNFB" lemma="sicut" pos="ADVrel">sicut</w>
+              <w xml:id="fFZkFxh" lemma="in" pos="PRE">in</w>
+              <w xml:id="zJuJZDP" lemma="principo" pos="VER" morph="CAS=Abl|MODE=Par|NOMB.=Sing|TEMPS=Pres">principante</w>
+              <w xml:id="kMpPNag" lemma="requiro" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">requiritur</w>
+              <w xml:id="zpVwtDz" lemma="excellens" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">excellens</w>
+              <w xml:id="ptNUDeB" lemma="prudentia" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">prudentia</w>
+              <w xml:id="fVFBMix" lemma="qui" pos="PROrel" morph="CAS=Abl|NOMB.=Sing">qua</w>
+              <w xml:id="iBeIrh1" lemma="scio" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">sciat</w>
+              <w xml:id="nSmX3cZ" lemma="alius" pos="PROind" morph="CAS=Acc|NOMB.=Plur">alios</w>
+              <w xml:id="lJ6rXux" lemma="rego" pos="VER" morph="MODE=Inf|TEMPS=Pres">regere</w>
+              <pc>,</pc>
+              <w xml:id="hAsOJhP" lemma="sic" pos="ADV">sic</w>
+              <w xml:id="nViuLk1" lemma="in" pos="PRE">in</w>
+              <w xml:id="yFIikab" lemma="quilibet" pos="PROind" morph="CAS=Abl|NOMB.=Sing">quolibet</w>
+              <w xml:id="vw4RgvD" lemma="ciuis" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">ciue</w>
+              <w xml:id="daULqph" lemma="requiro" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">requiritur</w>
+              <w xml:id="kyX6U2j" lemma="prudentia" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">prudentia</w>
+              <w xml:id="bggq5Yt" lemma="aliqualis" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">aliqualis</w>
+              <w xml:id="pEqXVrQ" lemma="qui" pos="PROrel" morph="CAS=Abl|NOMB.=Sing">qua</w>
+              <w xml:id="qmAMF9v" lemma="nosco" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">noscat</w>
+              <w xml:id="wCugmJo" lemma="adimpleo" pos="VER" morph="MODE=Inf|TEMPS=Pres">adimplere</w>
+              <w xml:id="rrLPYRB" lemma="lex" pos="VER" morph="CAS=Acc|NOMB.=Plur">leges</w>
+              <w xml:id="gTW2CHB" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="f8xRNRg" lemma="mandatum" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">mandata</w>
+              <w xml:id="iw8WLZZ" lemma="principo" pos="VER" morph="CAS=Acc|MODE=Par|NOMB.=Plur|TEMPS=Pres">principantis</w>
+              <pc>.</pc>
+              <w xml:id="rtIrIwB" lemma="no" pos="ADVneg" morph="CAS=Nom|NOMB.=Sing">Non</w>
+              <w xml:id="waK8oip" lemma="enim" pos="CONcoo">enim</w>
+              <w xml:id="pw9m3Cn" lemma="sic" pos="ADV">sic</w>
+              <w xml:id="droLO2t" lemma="obsequor" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">obsequitur</w>
+              <w xml:id="dJABmZd" lemma="ciuis" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">ciuis</w>
+              <w xml:id="xZlge8b" lemma="principo" pos="VER" morph="CAS=Dat|MODE=Par|NOMB.=Sing|TEMPS=Pres">principanti</w>
+              <w xml:id="me7oBGp" lemma="aut" pos="CONcoo">aut</w>
+              <w xml:id="cL0VXIe" lemma="rex" pos="NOMpro" morph="CAS=Gen|NOMB.=Sing">Regi</w>
+              <pc>,</pc>
+              <w xml:id="lrNaLva" lemma="sicut" pos="ADVrel">sicut</w>
+              <w xml:id="s7Q1vsT" lemma="martellus" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">martellus</w>
+              <w xml:id="yXkhVVT" lemma="faber" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">fabro</w>
+              <pc>:</pc>
+              <w xml:id="pxNuJfN" lemma="quia" pos="CONsub">quia</w>
+              <w xml:id="qb4LNEM" lemma="in" pos="PRE">in</w>
+              <w xml:id="nO5MGYi" lemma="martellum" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">martello</w>
+              <w xml:id="iYuR008" lemma="nullus" pos="PROind" morph="CAS=Nom|NOMB.=Sing">nulla</w>
+              <w xml:id="wMoj9oi" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="lPl3mpt" lemma="cognitio" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">cognitio</w>
+              <pc>,</pc>
+              <w xml:id="jYv675H" lemma="sed" pos="CONcoo">sed</w>
+              <w xml:id="zNeLwvv" lemma="solum" pos="PROind" morph="CAS=Acc|NOMB.=Sing">solum</w>
+              <w xml:id="xw3uFy3" lemma="agito" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">agitatur</w>
+              <w xml:id="ccKGl5w" lemma="ab" pos="PRE">a</w>
+              <w xml:id="xs65h8R" lemma="faber" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">fabro</w>
+              <pc>,</pc>
+              <w xml:id="d78sQTo" lemma="sed" pos="CONcoo">sed</w>
+              <w xml:id="aDcoai9" lemma="in" pos="PRE">in</w>
+              <w xml:id="fCQiUq0" lemma="ciuis" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">ciue</w>
+              <w xml:id="mgMrSdj" lemma="requiro" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">requiritur</w>
+              <w xml:id="joyFfmG" lemma="prudentia" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">prudentia</w>
+              <w xml:id="tFn1O28" lemma="aliquis" pos="PROind" morph="CAS=Nom|NOMB.=Sing">aliqua</w>
+              <w xml:id="zEoGmBm" lemma="per" pos="PRE">per</w>
+              <w xml:id="hRO2FHE" lemma="quam" pos="ADVint">quam</w>
+              <w xml:id="eTfggk7" lemma="habeo" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">habeat</w>
+              <w xml:id="fYNKk0H" lemma="bonus" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">bonam</w>
+              <w xml:id="n9wLVW2" lemma="opinio" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">opinionem</w>
+              <w xml:id="c00U7wS" lemma="de" pos="PRE">de</w>
+              <w xml:id="pcKUCJm" lemma="is" pos="PROdem" morph="CAS=Dat|NOMB.=Plur">iis</w>
+              <w xml:id="nENIKah" lemma="quis" pos="PROrel" morph="CAS=Nom|NOMB.=Plur">quae</w>
+              <w xml:id="xw9cwnG" lemma="impero" pos="VER" morph="MODE=Ind|NOMB.=Plur|PERS.=3|TEMPS=Pres">imperantur</w>
+              <w xml:id="iT5vbqx" lemma="ab" pos="PRE">a</w>
+              <w xml:id="rS5Gcbq" lemma="rex" pos="NOMpro" morph="CAS=Voc|NOMB.=Sing">Rege</w>
+              <pc>.</pc>
+              <w xml:id="ea535W5" lemma="differtis" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Differt</w>
+              <w xml:id="bJF2Q89" lemma="autem" pos="CONcoo">autem</w>
+              <w xml:id="hzli6zu" lemma="hic" pos="PROdem" morph="CAS=Nom|NOMB.=Plur">haec</w>
+              <w xml:id="kmExZuW" lemma="prudentia" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">prudentia</w>
+              <w xml:id="aTcAZJI" lemma="ab" pos="PRE">a</w>
+              <w xml:id="htEdG13" lemma="prudentia" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">prudentia</w>
+              <w xml:id="qVpxMjn" lemma="particulor" pos="VER" morph="MODE=Inf|TEMPS=Pres">particulari</w>
+              <pc>,</pc>
+              <w xml:id="vA6caeN" lemma="quam" pos="ADVint">quam</w>
+              <w xml:id="aeVcG4H" lemma="colloco" pos="VER" morph="MODE=Ind|NOMB.=Plur|PERS.=1|TEMPS=Perf">collocauimus</w>
+              <w xml:id="bqAqqsN" lemma="in" pos="PRE">in</w>
+              <w xml:id="iCJXB3s" lemma="primus" pos="ADJord" morph="CAS=Nom|NOMB.=Sing">prima</w>
+              <w xml:id="sNo8ozh" lemma="species" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">specie</w>
+              <pc>.</pc>
+              <w xml:id="aBUuq3U" lemma="nas" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Nam</w>
+              <w xml:id="yf2ki5p" lemma="alius" pos="PROind" morph="CAS=Acc|NOMB.=Sing">aliud</w>
+              <w xml:id="yfNuODt" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="iZZH4iz" lemma="qui" pos="PROrel" morph="NOMB.=Sing">quod</w>
+              <w xml:id="eROZO8a" lemma="scio" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">sciat</w>
+              <w xml:id="wXvX8XB" lemma="sui" pos="PROref" morph="CAS=Acc|NOMB.=Sing">se</w>
+              <w xml:id="rxzyRKS" lemma="rego" pos="VER" morph="MODE=Inf|TEMPS=Pres">regere</w>
+              <w xml:id="cFk9zJG" lemma="ut" pos="CONsub">ut</w>
+              <w xml:id="eIW3szE" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="fKgCOr9" lemma="aliquis" pos="PROind" morph="CAS=Acc|NOMB.=Sing">aliquid</w>
+              <w xml:id="n7Hvrf3" lemma="in" pos="PRE">in</w>
+              <w xml:id="xlZtJHB" lemma="sui" pos="PROref" morph="CAS=Acc|NOMB.=Sing">se</w>
+              <pc>,</pc>
+              <w xml:id="vOzdWvi" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="w8lDmPs" lemma="alius" pos="PROind" morph="CAS=Acc|NOMB.=Sing">aliud</w>
+              <w xml:id="wM0mCds" lemma="ut" pos="CONsub">ut</w>
+              <w xml:id="g2ABiBh" lemma="subicio" pos="VER" morph="MODE=Ind|NOMB.=Sing|TEMPS=Perf">subiectus</w>
+              <w xml:id="j1UDp7E" lemma="principo" pos="VER" morph="CAS=Dat|MODE=Par|NOMB.=Sing|TEMPS=Pres">principanti</w>
+              <pc>.</pc>
+              <w xml:id="hisQFs6" lemma="nas" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Nam</w>
+              <w xml:id="h8vDrOx" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="sZiuNOn" lemma="si" pos="CONsub">si</w>
+              <w xml:id="lODpdmi" lemma="quis" pos="PROint" morph="CAS=Nom|NOMB.=Sing">quis</w>
+              <w xml:id="uU5aNMr" lemma="solitarius" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">solitariam</w>
+              <w xml:id="l9SJnkS" lemma="nita" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">vitam</w>
+              <w xml:id="xqJj1t4" lemma="duco" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Impa">duceret</w>
+              <pc>,</pc>
+              <w xml:id="o8A5dug" lemma="adhuc" pos="ADV">adhuc</w>
+              <w xml:id="pelPNBO" lemma="oportet" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Impa">oporteret</w>
+              <w xml:id="gOCWb6d" lemma="ipse" pos="PROdem" morph="CAS=Acc|NOMB.=Sing">ipsum</w>
+              <w xml:id="xPTemE2" lemma="habeo" pos="VER" morph="MODE=Inf|TEMPS=Pres">habere</w>
+              <w xml:id="wHYdEqr" lemma="aliqualis" pos="PROind" morph="CAS=Acc|NOMB.=Sing">aliqualem</w>
+              <w xml:id="fg1Y8c9" lemma="prudentia" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">prudentiam</w>
+              <w xml:id="has1YZ7" lemma="qui" pos="PROrel" morph="CAS=Abl|NOMB.=Sing">qua</w>
+              <w xml:id="eFttMEq" lemma="scio" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Impa">sciret</w>
+              <w xml:id="p7Bwl9V" lemma="sui" pos="PROref" morph="CAS=Acc|NOMB.=Sing">se</w>
+              <w xml:id="jFBuRH6" lemma="rego" pos="VER" morph="MODE=Inf|TEMPS=Pres">regere</w>
+              <w xml:id="uIn2Ix3" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="q8xYMYg" lemma="guberno" pos="VER" morph="MODE=Inf|TEMPS=Pres">gubernare</w>
+              <pc>:</pc>
+              <w xml:id="m2YeRMc" lemma="non" pos="ADVneg">non</w>
+              <w xml:id="iOdBdpQ" lemma="tamen" pos="ADV">tamen</w>
+              <w xml:id="hLa4nh7" lemma="sum" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Impa">esset</w>
+              <w xml:id="g5j6YTM" lemma="in" pos="PRE">in</w>
+              <w xml:id="feLEFZm" lemma="ipse" pos="PROdem" morph="CAS=Abl|NOMB.=Sing">ipso</w>
+              <w xml:id="bxJ0bl5" lemma="prudentia" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">prudentia</w>
+              <w xml:id="arCxr92" lemma="ciuilis" pos="ADJqua" morph="CAS=Gen|NOMB.=Sing">ciuilis</w>
+              <pc>,</pc>
+              <w xml:id="xlMO2IS" lemma="nec" pos="CONcoo">nec</w>
+              <w xml:id="xVrvJdL" lemma="oeconomicus" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">oeconomica</w>
+              <pc>,</pc>
+              <w xml:id="c5onAzp" lemma="nec" pos="CONcoo">nec</w>
+              <w xml:id="bXIn5lA" lemma="regnatiuus" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">regnatiua</w>
+              <pc>,</pc>
+              <w xml:id="oYXznFk" lemma="quia" pos="CONsub">quia</w>
+              <w xml:id="ghx8RoY" lemma="non" pos="ADVneg">non</w>
+              <w xml:id="vXKScMn" lemma="sum" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Impa">esset</w>
+              <w xml:id="kNKVgRF" lemma="ciuitas" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">ciuitas</w>
+              <w xml:id="r9s3GmY" lemma="nec" pos="CONcoo">nec</w>
+              <w xml:id="c8jaruq" lemma="pars" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">pars</w>
+              <w xml:id="xOhR85y" lemma="ciuitas" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">ciuitatis</w>
+              <pc>.</pc>
+              <w xml:id="b47s5MK" lemma="quinta" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Quinta</w>
+              <w xml:id="w7lo6Ie" lemma="species" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">species</w>
+              <w xml:id="hIojdys" lemma="prudentia" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">prudentiae</w>
+              <w xml:id="g4RjrnS" lemma="dico" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">dicitur</w>
+              <w xml:id="c4xiTyD" lemma="sum" pos="VER" morph="MODE=Inf|TEMPS=Pres">esse</w>
+              <w xml:id="vFxljAq" lemma="militaris" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">militaris</w>
+              <pc>.</pc>
+              <w xml:id="pF5ZqMF" lemma="nas" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Nam</w>
+              <w xml:id="wFducni" lemma="regimen" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">regimen</w>
+              <w xml:id="vWaHPaO" lemma="regnum" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">regni</w>
+              <pc>,</pc>
+              <w xml:id="dv7u8wS" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="eimQ9gY" lemma="ciuitas" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">ciuitatis</w>
+              <pc>,</pc>
+              <w xml:id="djhatsf" lemma="si" pos="CONsub">si</w>
+              <w xml:id="yzJ2enI" lemma="sum" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">sit</w>
+              <w xml:id="qAVlKnC" lemma="rectus" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">rectum</w>
+              <w xml:id="yQRvQSV" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="oRZKfDg" lemma="ordino" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Perf">ordinatum</w>
+              <pc>,</pc>
+              <w xml:id="p4Vs9g2" lemma="assimilo" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">assimilatur</w>
+              <w xml:id="lzOWGjk" lemma="is" pos="PROdem" morph="CAS=Dat|NOMB.=Plur">iis</w>
+              <w xml:id="z9tbrmg" lemma="quis" pos="PROrel" morph="CAS=Nom|NOMB.=Plur">quae</w>
+              <w xml:id="x4CLDYz" lemma="iideo" pos="VER" morph="MODE=Ind|NOMB.=Plur|PERS.=1|TEMPS=Pres">videmus</w>
+              <w xml:id="xH2RPi2" lemma="in" pos="PRE">in</w>
+              <w xml:id="yaE8g8X" lemma="unus" pos="ADJcar" morph="CAS=Abl|NOMB.=Sing">uno</w>
+              <w xml:id="dEewald" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="ryk436E" lemma="idem" pos="PROdem" morph="NOMB.=Sing">eodem</w>
+              <w xml:id="yUOKY5P" lemma="homo" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">homine</w>
+              <pc>.</pc>
+              <w xml:id="umZu88x" lemma="sicut" pos="NOMpro" morph="NOMB.=Sing">Sicut</w>
+              <w xml:id="ufv1x42" lemma="ergo" pos="CONcoo">ergo</w>
+              <w xml:id="kBHjHUq" lemma="quilibet" pos="PROind" morph="CAS=Nom|NOMB.=Sing">quilibet</w>
+              <w xml:id="bqCe5pv" lemma="homo" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">homo</w>
+              <w xml:id="i6bm7ck" lemma="habeo" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">habet</w>
+              <w xml:id="yKc5gQE" lemma="duo" pos="ADJcar" morph="CAS=Acc|NOMB.=Plur">duas</w>
+              <w xml:id="suVnwpt" lemma="iirtus" pos="NOMcom" morph="CAS=Nom|NOMB.=Plur">virtutes</w>
+              <w xml:id="tdYXdyT" lemma="anima" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">animae</w>
+              <pc>.</pc>
+              <w xml:id="bgsv5AP" lemma="anus" pos="ADJcar" morph="CAS=Acc|NOMB.=Sing">Unam</w>
+              <w xml:id="xQRQHUC" lemma="per" pos="PRE">per</w>
+              <w xml:id="zbeayUZ" lemma="quam" pos="ADVint">quam</w>
+              <w xml:id="uSF6UUv" lemma="sequor" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">sequitur</w>
+              <w xml:id="aoN7jyc" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <w xml:id="o7NzNR5" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="hHT7zf2" lemma="fugio" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">fugit</w>
+              <w xml:id="j6x9ltV" lemma="malum" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">malum</w>
+              <pc>.</pc>
+              <w xml:id="rY5w0yv" lemma="et" pos="NOMpro">Et</w>
+              <w xml:id="pTaVv0a" lemma="alius" pos="PROind" morph="CAS=Acc|NOMB.=Sing">aliam</w>
+              <w xml:id="nkA6x3O" lemma="per" pos="PRE">per</w>
+              <w xml:id="jxGXtD8" lemma="quam" pos="ADVint">quam</w>
+              <w xml:id="thcnC4Q" lemma="aggredior" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">aggreditur</w>
+              <pc>,</pc>
+              <w xml:id="dOBmWtu" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="fXm6gvo" lemma="resisto" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">resistit</w>
+              <w xml:id="tqNFMnE" lemma="prohibeo" pos="VER" morph="CAS=Abl|MODE=Par|NOMB.=Plur|TEMPS=Pres">prohibentibus</w>
+              <pc>.</pc>
+              <w xml:id="uG9cHit" lemma="sic" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Sic</w>
+              <w xml:id="l5JLVSO" lemma="quilibet" pos="PROind" morph="CAS=Nom|NOMB.=Sing">quaelibet</w>
+              <w xml:id="xlgoSER" lemma="ciuitas" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">ciuitas</w>
+              <w xml:id="bkiA1n6" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="cNXJb3y" lemma="regnum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">regnum</w>
+              <w xml:id="irlullH" lemma="indigeo" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">indiget</w>
+              <w xml:id="bKsvz48" lemma="duplex" pos="ADJmul" morph="CAS=Abl|NOMB.=Sing">duplici</w>
+              <w xml:id="v5iOzoU" lemma="iirtus" pos="ADV" morph="CAS=Abl|NOMB.=Sing">virtute</w>
+              <pc>,</pc>
+              <w xml:id="xTfuO8c" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="jA26NlB" lemma="duplex" pos="ADJmul" morph="CAS=Abl|NOMB.=Sing">duplici</w>
+              <w xml:id="cKiWeCn" lemma="prudentia" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">prudentia</w>
+              <pc>,</pc>
+              <w xml:id="nysCbEC" lemma="iidelico" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">videlicet</w>
+              <w xml:id="uIRXtev" lemma="lex" pos="NOMcom" morph="CAS=Gen|NOMB.=Plur">legum</w>
+              <w xml:id="gURrpAK" lemma="positiuum" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">positiua</w>
+              <pc>,</pc>
+              <w xml:id="e4g9q5L" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="pWykspn" lemma="militaris" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">militari</w>
+              <pc>:</pc>
+              <w xml:id="yD9JyXQ" lemma="ut" pos="CONsub">ut</w>
+              <w xml:id="slL5se6" lemma="per" pos="PRE">per</w>
+              <w xml:id="cTvsixP" lemma="lex" pos="NOMcom" morph="CAS=Gen|NOMB.=Plur">legum</w>
+              <w xml:id="s2m7XQQ" lemma="positiua" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">positiuam</w>
+              <w xml:id="lJKdhQB" lemma="totus" pos="PROind" morph="CAS=Nom|NOMB.=Sing">tota</w>
+              <w xml:id="cUdmI3Y" lemma="ciuitas" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">ciuitas</w>
+              <w xml:id="n0C4vRP" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="yOn5Pj8" lemma="totus" pos="PROind" morph="CAS=Acc|NOMB.=Sing">totum</w>
+              <w xml:id="jQ4XdnC" lemma="regnum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">regnum</w>
+              <w xml:id="aUikfCn" lemma="prosequor" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">prosequatur</w>
+              <w xml:id="dDpyjw0" lemma="proficuo" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">proficua</w>
+              <pc>,</pc>
+              <w xml:id="v2sc1gg" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="aIvncs7" lemma="fugio" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">fugiat</w>
+              <w xml:id="xjBXXm1" lemma="nociua" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">nociua</w>
+              <pc>:</pc>
+              <w xml:id="cKacDIi" lemma="per" pos="PRE">per</w>
+              <w xml:id="lncWYmf" lemma="militaris" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">militarem</w>
+              <w xml:id="z5xMzVo" lemma="sero" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=1|TEMPS=Fut">vero</w>
+              <w xml:id="vUjQET7" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="qPSMZfZ" lemma="per" pos="PRE">per</w>
+              <w xml:id="gEKB6Ew" lemma="operatio" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">operationem</w>
+              <w xml:id="al2UhHz" lemma="bellicus" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">bellicam</w>
+              <w xml:id="vaw5hhe" lemma="aggredior" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">aggrediatur</w>
+              <pc>,</pc>
+              <w xml:id="tpGiQsB" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="pJZWqDZ" lemma="supero" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">superet</w>
+              <w xml:id="f5v3sLK" lemma="impedio" pos="VER" morph="CAS=Acc|MODE=Par|NOMB.=Plur|TEMPS=Pres">impedientia</w>
+              <w xml:id="fJONQwv" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="rpv5r1I" lemma="prohibeo" pos="VER" morph="CAS=Nom|MODE=Par|NOMB.=Plur|TEMPS=Pres">prohibentia</w>
+              <pc>.</pc>
+              <w xml:id="fG9evL4" lemma="militaris" pos="NOMpro" morph="CAS=Gen|NOMB.=Sing">Militaris</w>
+              <w xml:id="aXDzqbX" lemma="ergo" pos="CONcoo">ergo</w>
+              <w xml:id="ey5t2JB" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <pb break="y" n="558"/>
+              <w xml:id="gYLUXzU" lemma="quidam" pos="PROind" morph="CAS=Nom|NOMB.=Plur">quaedam</w>
+              <w xml:id="jhEz3b0" lemma="species" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">species</w>
+              <w xml:id="pJFskAr" lemma="prudentia" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">prudentiae</w>
+              <pc>,</pc>
+              <w xml:id="owJu5Rs" lemma="per" pos="PRE">per</w>
+              <w xml:id="sQFH55z" lemma="quam" pos="ADVint">quam</w>
+              <w xml:id="anMDyDF" lemma="supero" pos="VER" morph="MODE=Ind|NOMB.=Plur|PERS.=3|TEMPS=Pres">superantur</w>
+              <w xml:id="tiEZ406" lemma="hostis" pos="NOMcom" morph="CAS=Nom|NOMB.=Plur">hostes</w>
+              <w xml:id="il8PZh3" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="oVGOShT" lemma="prohibeo" pos="VER" morph="CAS=Nom|MODE=Par|NOMB.=Plur|TEMPS=Pres">prohibentes</w>
+              <w xml:id="w1sFQ5i" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <w xml:id="x1oup5p" lemma="ciuilis" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">ciuile</w>
+              <w xml:id="uxksY2p" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="yGhsluk" lemma="communis" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">commune</w>
+              <pc>.</pc>
+              <w xml:id="jsxkEcd" lemma="exix" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Ex</w>
+              <w xml:id="nqEle98" lemma="hic" pos="PROdem" morph="CAS=Nom|NOMB.=Sing">hoc</w>
+              <w xml:id="gACF55K" lemma="autem" pos="CONcoo">autem</w>
+              <w xml:id="lb0JQAs" lemma="appareo" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">apparet</w>
+              <w xml:id="nq6Gqq4" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="jDpM2g3" lemma="quis" pos="PROint" morph="CAS=Acc|NOMB.=Sing">quid</w>
+              <w xml:id="l2Klvqq" lemma="sum" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">sit</w>
+              <w xml:id="t6ITE5Y" lemma="militia" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">militia</w>
+              <w xml:id="q0TyyoK" lemma="institutum" pos="VER" morph="CAS=Acc|NOMB.=Plur|TEMPS=Perf">instituta</w>
+              <pc>.</pc>
+              <w xml:id="l75Mplr" lemma="nas" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Nam</w>
+              <w xml:id="cSCFRut" lemma="sicut" pos="ADVrel">sicut</w>
+              <w xml:id="a0y4kGs" lemma="lex" pos="VER" morph="CAS=Acc|NOMB.=Plur">leges</w>
+              <pc>(</pc>
+              <w xml:id="y29DtPs" lemma="ut" pos="CONsub">ut</w>
+              <w xml:id="r66dIKm" lemma="supra" pos="ADV">supra</w>
+              <w xml:id="y9RJOFH" lemma="ostendo" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Impa">ostendebatur</w>
+              <pc>)</pc>
+              <w xml:id="tkWebFz" lemma="principaliter" pos="ADV">principaliter</w>
+              <w xml:id="yH17v1z" lemma="respicio" pos="VER" morph="MODE=Ind|NOMB.=Plur|PERS.=3|TEMPS=Pres">respiciunt</w>
+              <w xml:id="juQUwQ7" lemma="communis" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">commune</w>
+              <w xml:id="l6d3eiL" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <pc>,</pc>
+              <w xml:id="wafh54G" lemma="sic" pos="ADV">sic</w>
+              <w xml:id="nHmWpDC" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="ucmm9CZ" lemma="militia" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">militia</w>
+              <w xml:id="gzAq8Tu" lemma="principaliter" pos="ADV">principaliter</w>
+              <w xml:id="nHjaGMV" lemma="institutum" pos="VER" morph="CAS=Acc|NOMB.=Plur|TEMPS=Perf">instituta</w>
+              <w xml:id="hXUgr3t" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="kGFMope" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="nQSMXxU" lemma="defensio" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">defensionem</w>
+              <w xml:id="s5mcQ1t" lemma="communis" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">communis</w>
+              <w xml:id="iB8dLRo" lemma="bonus" pos="NOMcom" morph="CAS=Nom|NOMB.=Plur">boni</w>
+              <pc>,</pc>
+              <w xml:id="a4u0FXZ" lemma="ut" pos="CONsub">ut</w>
+              <w xml:id="xEZ4FuW" lemma="ciuitas" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">ciuitatis</w>
+              <pc>,</pc>
+              <w xml:id="fSlNcer" lemma="aut" pos="CONcoo">aut</w>
+              <w xml:id="lfKaufK" lemma="regnum" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">regni</w>
+              <pc>.</pc>
+              <w xml:id="k0Es58Y" lemma="quarus" pos="NOMpro" morph="CAS=Voc|NOMB.=Sing">Quare</w>
+              <w xml:id="luRcybD" lemma="cum" pos="CONsub">cum</w>
+              <w xml:id="bN3tSyH" lemma="communis" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">commune</w>
+              <w xml:id="i28pOFE" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <w xml:id="hJgR9Nj" lemma="directo" pos="ADV" morph="PERS.=2">directe</w>
+              <w xml:id="iF0DZTO" lemma="iideo" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">videatur</w>
+              <w xml:id="teOvFec" lemma="impedio" pos="VER" morph="MODE=Inf|TEMPS=Pres">impediri</w>
+              <w xml:id="lsQcQW5" lemma="per" pos="PRE">per</w>
+              <w xml:id="pwxSFAV" lemma="impugnatio" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">impugnationem</w>
+              <w xml:id="xvCfuFz" lemma="hostis" pos="NOMcom" morph="CAS=Gen|NOMB.=Plur">hostium</w>
+              <pc>,</pc>
+              <w xml:id="v1duluc" lemma="ex" pos="PRE">ex</w>
+              <w xml:id="aYq17NO" lemma="consequor" pos="VER" morph="CAS=Dat|MODE=Par|NOMB.=Sing|TEMPS=Pres">consequenti</w>
+              <w xml:id="vCMTGCD" lemma="sero" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=1|TEMPS=Fut">vero</w>
+              <w xml:id="voySF93" lemma="ex" pos="PRE">ex</w>
+              <w xml:id="oux6GsE" lemma="seditio" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">seditione</w>
+              <w xml:id="eNmfIY2" lemma="ipse" pos="PROdem" morph="CAS=Gen|NOMB.=Plur">ipsorum</w>
+              <w xml:id="mDgmrt9" lemma="ciuis" pos="NOMcom" morph="CAS=Gen|NOMB.=Plur">ciuium</w>
+              <pc>,</pc>
+              <w xml:id="thMZhzz" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="zFJyIFr" lemma="ex" pos="PRE">ex</w>
+              <w xml:id="cPt1R8r" lemma="oppressio" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">oppressione</w>
+              <w xml:id="pI2Xodm" lemma="debilis" pos="ADJqua" morph="CAS=Gen|NOMB.=Plur">debilium</w>
+              <w xml:id="sEwktrV" lemma="persona" pos="NOMcom" morph="CAS=Gen|NOMB.=Plur">personarum</w>
+              <pc>,</pc>
+              <w xml:id="kJtgPZa" lemma="dico" pos="VER" morph="MODE=Inf|TEMPS=Pres">dicere</w>
+              <w xml:id="wPECLiR" lemma="possum" pos="VER" morph="MODE=Ind|NOMB.=Plur|PERS.=1|TEMPS=Pres">possumus</w>
+              <w xml:id="dLtvm0U" lemma="qui" pos="PROrel" morph="NOMB.=Sing">quod</w>
+              <w xml:id="fckcZau" lemma="sicut" pos="ADVrel">sicut</w>
+              <w xml:id="ciVPTBR" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="xhNREvB" lemma="fortis" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">fortem</w>
+              <w xml:id="fO7G6lS" lemma="principaliter" pos="ADV">principaliter</w>
+              <w xml:id="leayDlK" lemma="specto" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">spectat</w>
+              <w xml:id="mrBs7WC" lemma="bene" pos="ADV">bene</w>
+              <w xml:id="ikAThuL" lemma="sui" pos="PROref" morph="CAS=Acc|NOMB.=Sing">se</w>
+              <w xml:id="q9MkExu" lemma="habeo" pos="VER" morph="MODE=Inf|TEMPS=Pres">habere</w>
+              <w xml:id="aOHiFl6" lemma="in" pos="PRE">in</w>
+              <w xml:id="jFx11uN" lemma="opus" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">opere</w>
+              <w xml:id="ohgmVmO" lemma="bellicus" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">bellico</w>
+              <pc>,</pc>
+              <w xml:id="tE1R0KK" lemma="ex" pos="PRE">ex</w>
+              <w xml:id="ocG0qJ1" lemma="consequor" pos="VER" morph="CAS=Dat|MODE=Par|NOMB.=Sing|TEMPS=Pres">consequenti</w>
+              <w xml:id="b9jFyfB" lemma="sero" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=1|TEMPS=Fut">vero</w>
+              <w xml:id="tZiX075" lemma="specto" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">spectat</w>
+              <w xml:id="uhHtPEt" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="m3ZmExJ" lemma="ipse" pos="PROdem" morph="CAS=Acc|NOMB.=Sing">ipsum</w>
+              <w xml:id="t9XCUvo" lemma="bene" pos="ADV">bene</w>
+              <w xml:id="w4IZT8e" lemma="sui" pos="PROref" morph="CAS=Acc|NOMB.=Sing">se</w>
+              <w xml:id="sBg4Hhh" lemma="habeo" pos="VER" morph="MODE=Inf|TEMPS=Pres">habere</w>
+              <w xml:id="mTHE14x" lemma="in" pos="PRE">in</w>
+              <w xml:id="yodZdQK" lemma="alius" pos="PROind" morph="CAS=Dat|NOMB.=Plur">aliis</w>
+              <w xml:id="i91crhp" lemma="terribilis" pos="ADJqua" morph="CAS=Abl|NOMB.=Plur">terribilibus</w>
+              <w xml:id="tkwDm1c" lemma="sic" pos="ADV">sic</w>
+              <w xml:id="kYGYeJb" lemma="etiam" pos="ADV">etiam</w>
+              <w xml:id="sIlXplg" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="doDNA4G" lemma="miles" pos="NOMcom" morph="CAS=Voc|NOMB.=Plur">milites</w>
+              <w xml:id="yKWXTSz" lemma="principaliter" pos="ADV">principaliter</w>
+              <w xml:id="kApiGQ9" lemma="specto" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">spectat</w>
+              <w xml:id="ffvTrqa" lemma="bene" pos="ADV">bene</w>
+              <w xml:id="ywqIBph" lemma="sui" pos="PROref" morph="CAS=Acc|NOMB.=Sing">se</w>
+              <w xml:id="xbWebek" lemma="habeo" pos="VER" morph="MODE=Inf|TEMPS=Pres">habere</w>
+              <w xml:id="pdZTWIu" lemma="in" pos="PRE">in</w>
+              <w xml:id="dlLky0n" lemma="opus" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">opere</w>
+              <w xml:id="xoY6tHa" lemma="bellicus" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">bellico</w>
+              <pc>,</pc>
+              <w xml:id="oKU7LvR" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="xuIwDpx" lemma="per" pos="PRE">per</w>
+              <w xml:id="jjiKshd" lemma="actio" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">actiones</w>
+              <w xml:id="mkOwaAB" lemma="bellicus" pos="ADJqua" morph="CAS=Acc|NOMB.=Plur">bellicas</w>
+              <w xml:id="xPXEfnu" lemma="opprimo" pos="VER" morph="MODE=Inf|TEMPS=Pres">opprimere</w>
+              <w xml:id="vN5PnsE" lemma="impedimentum" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">impedimenta</w>
+              <w xml:id="kE5Hpm5" lemma="hostis" pos="NOMcom" morph="CAS=Gen|NOMB.=Plur">hostium</w>
+              <pc>:</pc>
+              <w xml:id="heeVnZS" lemma="ex" pos="PRE">ex</w>
+              <w xml:id="oBav8Me" lemma="consequor" pos="VER" morph="CAS=Dat|MODE=Par|NOMB.=Sing|TEMPS=Pres">consequenti</w>
+              <w xml:id="vLqyUMv" lemma="sero" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=1|TEMPS=Fut">vero</w>
+              <w xml:id="yWc5QSS" lemma="specto" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">spectat</w>
+              <w xml:id="uw4ox23" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="hjPQF1U" lemma="ipse" pos="PROdem" morph="CAS=Acc|NOMB.=Plur">ipsos</w>
+              <w xml:id="jd8asTA" lemma="secundus" pos="ADJord" morph="NOMB.=Sing">secundum</w>
+              <w xml:id="cQjYgKK" lemma="iussio" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">iussionem</w>
+              <w xml:id="sD7sAeQ" lemma="regia" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">regiam</w>
+              <w xml:id="iC3BnKK" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="bLVahdW" lemma="secundus" pos="ADJord" morph="NOMB.=Sing">secundum</w>
+              <w xml:id="gFLkHkk" lemma="mandatum" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">mandata</w>
+              <w xml:id="owliSOW" lemma="principo" pos="VER" morph="CAS=Acc|MODE=Par|NOMB.=Plur|TEMPS=Pres">principantis</w>
+              <w xml:id="dzn89ab" lemma="impedio" pos="VER" morph="MODE=Inf|TEMPS=Pres">impedire</w>
+              <w xml:id="x4kUEQU" lemma="omnis" pos="PROind" morph="CAS=Nom|NOMB.=Plur">omnes</w>
+              <w xml:id="maVeptR" lemma="seditio" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">seditiones</w>
+              <w xml:id="ctLzmG1" lemma="ciuis" pos="NOMcom" morph="CAS=Gen|NOMB.=Plur">ciuium</w>
+              <w xml:id="ysTNMeA" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="yk4w99n" lemma="omnis" pos="PROind" morph="CAS=Nom|NOMB.=Plur">omnes</w>
+              <w xml:id="lU84cUR" lemma="oppressio" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">oppressiones</w>
+              <w xml:id="nZKcPuE" lemma="is" pos="PROdem" morph="CAS=Gen|NOMB.=Plur">eorum</w>
+              <w xml:id="ktOpCQj" lemma="qui" pos="PROrel" morph="CAS=Nom|NOMB.=Plur">qui</w>
+              <w xml:id="oXU0c5s" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Plur|PERS.=3|TEMPS=Pres">sunt</w>
+              <w xml:id="dGHe8j3" lemma="in" pos="PRE">in</w>
+              <w xml:id="jptqKGY" lemma="regnum" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">regno</w>
+              <pc>,</pc>
+              <w xml:id="pTY76ok" lemma="per" pos="PRE">per</w>
+              <w xml:id="kBjG3CD" lemma="quis" pos="PROint" morph="CAS=Acc|NOMB.=Plur">quas</w>
+              <w xml:id="gVE1PEq" lemma="turbo" pos="VER" morph="MODE=Inf|TEMPS=Pres">turbari</w>
+              <w xml:id="evRWzAW" lemma="possum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">potest</w>
+              <w xml:id="u6YRTz9" lemma="tranquillitas" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">tranquillitas</w>
+              <w xml:id="rNN7TzS" lemma="ciuis" pos="NOMcom" morph="CAS=Gen|NOMB.=Plur">ciuium</w>
+              <w xml:id="kW7mre0" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="uWoUUz1" lemma="communis" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">commune</w>
+              <w xml:id="b28W2Xb" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <pc>.</pc>
+              <w xml:id="oKyezRe" lemma="hanc" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Hanc</w>
+              <w xml:id="vzBlvoa" lemma="autem" pos="CONcoo">autem</w>
+              <w xml:id="fDQ0e29" lemma="prudentia" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">prudentiam</w>
+              <w xml:id="zJUWcGV" lemma="iidelico" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">videlicet</w>
+              <w xml:id="oy8CAPP" lemma="militaris" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">militarem</w>
+              <pc>,</pc>
+              <w xml:id="mzQXDYv" lemma="magis" pos="ADV">maxime</w>
+              <w xml:id="kfGp1ue" lemma="decet" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">decet</w>
+              <w xml:id="o1NGMpe" lemma="habeo" pos="VER" morph="MODE=Inf|TEMPS=Pres">habere</w>
+              <w xml:id="lo6Kp6Y" lemma="rex" pos="NOMpro" morph="CAS=Acc|NOMB.=Sing">Regem</w>
+              <pc>.</pc>
+              <w xml:id="suTHQ3S" lemma="nas" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Nam</w>
+              <w xml:id="xInu16n" lemma="licet" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">licet</w>
+              <w xml:id="uSTbz8A" lemma="exsequia" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">executio</w>
+              <w xml:id="fE9SmPX" lemma="bellum" pos="NOMcom" morph="CAS=Gen|NOMB.=Plur">bellorum</w>
+              <pc>,</pc>
+              <w xml:id="a0BSUfG" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="mPSlUJ7" lemma="remoueo" pos="VER" morph="MODE=Inf|NOMB.=Plur|TEMPS=Pres">remouere</w>
+              <w xml:id="kKKkBt9" lemma="impedimentum" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">impedimenta</w>
+              <w xml:id="jCohuXF" lemma="ipse" pos="PROdem" morph="CAS=Gen|NOMB.=Sing">ipsius</w>
+              <w xml:id="fcXb9nW" lemma="communis" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">communis</w>
+              <w xml:id="wMe4J1r" lemma="bonus" pos="NOMcom" morph="CAS=Nom|NOMB.=Plur">boni</w>
+              <pc>,</pc>
+              <w xml:id="jV11KMe" lemma="specto" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">spectet</w>
+              <w xml:id="oVLe4sl" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="zzWYtSW" lemma="ipse" pos="PROdem" morph="CAS=Acc|NOMB.=Plur">ipsos</w>
+              <w xml:id="fvSL09u" lemma="miles" pos="NOMcom" morph="CAS=Voc|NOMB.=Plur">milites</w>
+              <pc>,</pc>
+              <w xml:id="mmHO7Mg" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="gaenQ2v" lemma="etiam" pos="ADV">etiam</w>
+              <w xml:id="rvpmE0z" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="eC8UcBf" lemma="is" pos="PROdem" morph="CAS=Acc|NOMB.=Plur">eos</w>
+              <w xml:id="kuhLB0Y" lemma="qui" pos="PROrel" morph="CAS=Dat|NOMB.=Plur">quibus</w>
+              <w xml:id="eyLSCNl" lemma="ipse" pos="PROdem" morph="CAS=Nom|NOMB.=Sing">ipse</w>
+              <w xml:id="aQYrjef" lemma="rex" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Rex</w>
+              <w xml:id="emWAxVq" lemma="aut" pos="CONcoo">aut</w>
+              <w xml:id="sSwnmWI" lemma="princeps" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Princeps</w>
+              <w xml:id="fV0WsKC" lemma="uolo" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Perf">voluerit</w>
+              <w xml:id="ggcitdF" lemma="committo" pos="VER" morph="MODE=Inf|TEMPS=Pres">committere</w>
+              <w xml:id="x5INZ22" lemma="talis" pos="PROdem" morph="CAS=Acc|NOMB.=Plur">talia</w>
+              <pc>:</pc>
+              <w xml:id="oJWSDho" lemma="scio" pos="VER" morph="MODE=Inf|TEMPS=Pres">scire</w>
+              <w xml:id="sQdA0cv" lemma="tamen" pos="ADV">tamen</w>
+              <w xml:id="jBGVny2" lemma="quomodo" pos="ADVint">quomodo</w>
+              <w xml:id="cvUutkQ" lemma="committo" pos="VER" morph="CAS=Nom|MODE=Adj|NOMB.=Plur">committenda</w>
+              <w xml:id="ia2nUhE" lemma="sum" pos="VER" morph="MODE=Sub|NOMB.=Plur|PERS.=3|TEMPS=Pres">sint</w>
+              <w xml:id="z0lE2gB" lemma="bellum" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">bella</w>
+              <pc>,</pc>
+              <w xml:id="m9ZvlTN" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="hFYrWUL" lemma="qualiter" pos="ADVint">qualiter</w>
+              <w xml:id="v0v3Ca9" lemma="caute" pos="ADV">caute</w>
+              <w xml:id="nhCOXmd" lemma="remoueo" pos="VER" morph="MODE=Inf|TEMPS=Pres">remoueri</w>
+              <w xml:id="vCPWZBE" lemma="possum" pos="VER" morph="MODE=Sub|NOMB.=Plur|PERS.=3|TEMPS=Pres">possint</w>
+              <w xml:id="j4M4otp" lemma="impedio" pos="VER" morph="CAS=Acc|MODE=Par|NOMB.=Plur|TEMPS=Pres">impedientia</w>
+              <w xml:id="lEs4f2b" lemma="communis" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">commune</w>
+              <w xml:id="pwlzBCu" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <pc>,</pc>
+              <w xml:id="xZCVrb5" lemma="magis" pos="ADV">maxime</w>
+              <w xml:id="iEzkqSb" lemma="specto" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">spectat</w>
+              <w xml:id="rOqdUQu" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="p7QVAUZ" lemma="principo" pos="VER" morph="CAS=Acc|MODE=Par|NOMB.=Sing|TEMPS=Pres">principantem</w>
+              <pc>.</pc>
+              <w xml:id="q8wAiME" lemma="exix" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Ex</w>
+              <w xml:id="dwui8jJ" lemma="hic" pos="PROdem" morph="CAS=Nom|NOMB.=Sing">hoc</w>
+              <w xml:id="qjJXZ7m" lemma="ergo" pos="CONcoo">ergo</w>
+              <w xml:id="llFqx2O" lemma="patior" pos="VER" morph="MODE=Imp|PERS.=2|TEMPS=Pres">patere</w>
+              <w xml:id="yADCJnY" lemma="possum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">potest</w>
+              <pc>,</pc>
+              <w xml:id="d38ws0N" lemma="qualis" pos="PROint" morph="CAS=Nom|NOMB.=Plur">quales</w>
+              <w xml:id="a8nlu6o" lemma="sum" pos="VER" morph="MODE=Sub|NOMB.=Plur|PERS.=3|TEMPS=Pres">sint</w>
+              <w xml:id="msZvpa9" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="kw05j12" lemma="militia" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">militiam</w>
+              <w xml:id="utincOk" lemma="admitto" pos="VER" morph="CAS=Gen|MODE=Ger|NOMB.=Sing">admittendi</w>
+              <pc>.</pc>
+              <w xml:id="d50dwzp" lemma="nas" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Nam</w>
+              <w xml:id="hDgtAGC" lemma="militia" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">militia</w>
+              <w xml:id="eRMZaBg" lemma="dido" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">videtur</w>
+              <w xml:id="caZQTnX" lemma="sum" pos="VER" morph="MODE=Inf|TEMPS=Pres">esse</w>
+              <w xml:id="ngKOVW6" lemma="quidam" pos="PROind" morph="CAS=Nom|NOMB.=Plur">quaedam</w>
+              <w xml:id="vi3veRU" lemma="prudentia" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">prudentia</w>
+              <w xml:id="gi7csFv" lemma="opus" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">operis</w>
+              <w xml:id="dhsnMrB" lemma="bellicus" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">bellici</w>
+              <pc>,</pc>
+              <w xml:id="sDrE2Ty" lemma="ordino" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Perf">ordinata</w>
+              <w xml:id="lgi0E8L" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="fDRg9It" lemma="communis" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">commune</w>
+              <w xml:id="syJAjBu" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <pc>:</pc>
+              <w xml:id="fNeBllX" lemma="ido" pos="VER" morph="MODE=Ind|NOMB.=Plur|PERS.=3|TEMPS=Pres">videntur</w>
+              <w xml:id="u48siCH" lemma="enim" pos="CONcoo">enim</w>
+              <w xml:id="y9GWSxW" lemma="sui" pos="PROref" morph="CAS=Acc|NOMB.=Sing">se</w>
+              <w xml:id="jfv8RMc" lemma="habeo" pos="VER" morph="MODE=Inf|TEMPS=Pres">habere</w>
+              <w xml:id="uwqid2B" lemma="miles" pos="NOMcom" morph="CAS=Voc|NOMB.=Plur">milites</w>
+              <w xml:id="mGsAFVJ" lemma="in" pos="PRE">in</w>
+              <w xml:id="cKTHyJ1" lemma="opus" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">opere</w>
+              <w xml:id="bdHmY1M" lemma="bellicus" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">bellico</w>
+              <pc>,</pc>
+              <w xml:id="hRz9QQS" lemma="sicut" pos="ADVrel">sicut</w>
+              <w xml:id="acjn4Vx" lemma="magister" pos="NOMcom" morph="CAS=Nom|NOMB.=Plur">magistri</w>
+              <w xml:id="ytUZi5k" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="pz2Ckh2" lemma="doctor" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">doctores</w>
+              <w xml:id="zFHQeXg" lemma="in" pos="PRE">in</w>
+              <w xml:id="lShauzK" lemma="scientia" pos="NOMcom" morph="CAS=Abl|NOMB.=Plur">scientiis</w>
+              <w xml:id="pbLln4G" lemma="alius" pos="PROind" morph="CAS=Dat|NOMB.=Plur">aliis</w>
+              <pc>.</pc>
+              <w xml:id="p3MUDpA" lemma="quarus" pos="NOMpro" morph="CAS=Voc|NOMB.=Sing">Quare</w>
+              <w xml:id="jMbsW82" lemma="sicut" pos="ADVrel">sicut</w>
+              <w xml:id="nSY2ohr" lemma="nullus" pos="PROind" morph="CAS=Nom|NOMB.=Sing">nullus</w>
+              <w xml:id="fy6aUQd" lemma="efficio" pos="VER" morph="CAS=Nom|MODE=Adj|NOMB.=Sing">efficiendus</w>
+              <w xml:id="u7BNuGj" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="fHraR4L" lemma="magister" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">magister</w>
+              <w xml:id="nqFHXHF" lemma="in" pos="PRE">in</w>
+              <w xml:id="bdtOgXc" lemma="alius" pos="PROind" morph="CAS=Dat|NOMB.=Plur">aliis</w>
+              <w xml:id="q7xQEVZ" lemma="scientia" pos="NOMcom" morph="CAS=Abl|NOMB.=Plur">scientiis</w>
+              <pc>,</pc>
+              <w xml:id="iWjsWr1" lemma="nisi" pos="CONsub">nisi</w>
+              <w xml:id="sEsEBA0" lemma="consto" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">constet</w>
+              <w xml:id="mf1V2pu" lemma="ipse" pos="PROdem" morph="CAS=Acc|NOMB.=Sing">ipsum</w>
+              <w xml:id="i6BxXy7" lemma="sum" pos="VER" morph="MODE=Inf|TEMPS=Pres">esse</w>
+              <w xml:id="xE9IRAL" lemma="doctus" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">doctum</w>
+              <w xml:id="niWza1E" lemma="in" pos="PRE">in</w>
+              <w xml:id="jhaSUWs" lemma="ars" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">arte</w>
+              <w xml:id="yBzlzmV" lemma="ille" pos="PROdem" morph="CAS=Nom|NOMB.=Sing">illa</w>
+              <pc>:</pc>
+              <w xml:id="o0ebW5N" lemma="sic" pos="ADV">sic</w>
+              <w xml:id="eAxdM7i" lemma="nullus" pos="PROind" morph="CAS=Nom|NOMB.=Sing">nullus</w>
+              <w xml:id="qWel29c" lemma="assumo" pos="VER" morph="CAS=Nom|MODE=Adj|NOMB.=Sing">assumendus</w>
+              <w xml:id="xDSmJqY" lemma="sum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">est</w>
+              <w xml:id="f2tGekr" lemma="ad" pos="PRE">ad</w>
+              <w xml:id="rkU3me7" lemma="dignitas" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">dignitatem</w>
+              <w xml:id="vclFoZl" lemma="militaris" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">militarem</w>
+              <pc>,</pc>
+              <w xml:id="dnKxX5X" lemma="nisi" pos="CONsub">nisi</w>
+              <w xml:id="on7WXPt" lemma="consto" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">constet</w>
+              <w xml:id="hlSsckQ" lemma="ipse" pos="PROdem" morph="CAS=Acc|NOMB.=Sing">ipsum</w>
+              <w xml:id="wkHSBtC" lemma="diligo" pos="VER" morph="MODE=Inf|TEMPS=Pres">diligere</w>
+              <w xml:id="n1lgtVo" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <w xml:id="s1WtBnK" lemma="regnum" pos="NOMcom" morph="CAS=Gen|NOMB.=Sing">regni</w>
+              <w xml:id="rlOV0UA" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="fk4Ozc8" lemma="communis" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">commune</w>
+              <pc>,</pc>
+              <w xml:id="fWFTc2G" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="gR2A6OS" lemma="nisi" pos="CONsub">nisi</w>
+              <w xml:id="aEmMmPU" lemma="spes" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">spes</w>
+              <w xml:id="vBptZSd" lemma="habeo" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">habeatur</w>
+              <w xml:id="fFDDbLB" lemma="qui" pos="PROrel" morph="NOMB.=Sing">quod</w>
+              <w xml:id="q2RuQSe" lemma="sum" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">sit</w>
+              <w xml:id="wjvW6Or" lemma="bonus" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">bonus</w>
+              <w xml:id="k0KbduY" lemma="in" pos="PRE">in</w>
+              <w xml:id="kgyNF6x" lemma="opus" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">opere</w>
+              <w xml:id="dxZ1yp6" lemma="bellicus" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">bellico</w>
+              <pc>;</pc>
+              <pb break="y" n="559"/>
+              <w xml:id="i1kIdat" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="uxQSc0u" lemma="qui" pos="PROrel" morph="NOMB.=Sing">quod</w>
+              <w xml:id="vNINvuC" lemma="eolo" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">velit</w>
+              <w xml:id="vlVrM0Q" lemma="secundus" pos="ADJord" morph="NOMB.=Sing">secundum</w>
+              <w xml:id="yYhJQst" lemma="iussio" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">iussionem</w>
+              <w xml:id="l6BsKVZ" lemma="principo" pos="VER" morph="CAS=Acc|MODE=Par|NOMB.=Plur|TEMPS=Pres">principantis</w>
+              <w xml:id="aFeTc1f" lemma="impedio" pos="VER" morph="MODE=Inf|TEMPS=Pres">impedire</w>
+              <w xml:id="fgnugYK" lemma="seditio" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">seditiones</w>
+              <w xml:id="umo15b4" lemma="ciuis" pos="NOMcom" morph="CAS=Gen|NOMB.=Plur">ciuium</w>
+              <pc>,</pc>
+              <w xml:id="p2iw7vn" lemma="pugno" pos="VER" morph="MODE=Inf|TEMPS=Pres">pugnare</w>
+              <w xml:id="txoXamE" lemma="pro" pos="PRE">pro</w>
+              <w xml:id="sLhd3Jt" lemma="iustitia" pos="NOMcom" morph="CAS=Nom|NOMB.=Sing">iustitia</w>
+              <w xml:id="sQgYFvB" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="a2eZ7kf" lemma="pro" pos="PRE">pro</w>
+              <w xml:id="co6nPSy" lemma="ius" pos="NOMcom" morph="CAS=Dat|NOMB.=Plur">iuribus</w>
+              <pc>,</pc>
+              <w xml:id="nm3mZR0" lemma="remoueo" pos="VER" morph="MODE=Inf|NOMB.=Plur|TEMPS=Pres">remouere</w>
+              <w xml:id="qcAgomi" lemma="quicumque" pos="PROrel" morph="NOMB.=Sing">quaecunque</w>
+              <w xml:id="quXJCSx" lemma="impedio" pos="VER" morph="MODE=Inf|TEMPS=Pres">impedire</w>
+              <w xml:id="qCDzNwF" lemma="possum" pos="VER" morph="MODE=Ind|NOMB.=Plur|PERS.=3|TEMPS=Pres">possunt</w>
+              <w xml:id="zqjbcV0" lemma="communis" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">commune</w>
+              <w xml:id="kLzeRxR" lemma="bonum" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">bonum</w>
+              <pc>.</pc>
+              <w xml:id="uJ7ejLP" lemma="exix" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Ex</w>
+              <w xml:id="arUiePz" lemma="hic" pos="PROdem" morph="CAS=Nom|NOMB.=Sing">hoc</w>
+              <w xml:id="vJwugo0" lemma="etiam" pos="ADV">etiam</w>
+              <w xml:id="gu0GIhc" lemma="patior" pos="VER" morph="MODE=Imp|PERS.=2|TEMPS=Pres">patere</w>
+              <w xml:id="jJLFtH3" lemma="possum" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">potest</w>
+              <w xml:id="jtYQWJG" lemma="omnis" pos="PROind" morph="CAS=Acc|NOMB.=Sing">omnem</w>
+              <w xml:id="oMNSNd5" lemma="bellicus" pos="ADJqua" morph="CAS=Acc|NOMB.=Sing">bellicam</w>
+              <w xml:id="cqxoJaa" lemma="operatio" pos="NOMcom" morph="CAS=Acc|NOMB.=Sing">operationem</w>
+              <w xml:id="wlHb8hO" lemma="contineo" pos="VER" morph="MODE=Inf|TEMPS=Pres">contineri</w>
+              <w xml:id="sbCu2Sk" lemma="sub" pos="PRE">sub</w>
+              <w xml:id="vxUJ5Z3" lemma="militaris" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">militari</w>
+              <pc>.</pc>
+              <w xml:id="gCFqbUh" lemma="nas" pos="NOMpro" morph="CAS=Nom|NOMB.=Sing">Nam</w>
+              <w xml:id="soef2gv" lemma="licet" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">licet</w>
+              <w xml:id="a7dcMQb" lemma="bello" pos="VER" morph="MODE=Inf|TEMPS=Pres">bellare</w>
+              <w xml:id="xS5n94T" lemma="contingo" pos="VER" morph="MODE=Sub|NOMB.=Sing|PERS.=3|TEMPS=Pres">contingat</w>
+              <w xml:id="em41ZA4" lemma="homo" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">homines</w>
+              <w xml:id="pqU3UHW" lemma="pedes" pos="NOMcom" morph="CAS=Nom|NOMB.=Plur">pedites</w>
+              <pc>,</pc>
+              <w xml:id="aEarxlQ" lemma="ego" pos="ADV">vel</w>
+              <w xml:id="rSqbLbd" lemma="etiam" pos="ADV">etiam</w>
+              <w xml:id="q9GmAem" lemma="equester" pos="ADJqua" morph="CAS=Nom|NOMB.=Plur">equestres</w>
+              <w xml:id="xpVKPod" lemma="non" pos="ADVneg">non</w>
+              <w xml:id="b9l2Mtp" lemma="exsisto" pos="VER" morph="CAS=Nom|MODE=Par|NOMB.=Plur|TEMPS=Pres">existentes</w>
+              <w xml:id="ktwXw3F" lemma="miles" pos="NOMcom" morph="CAS=Voc|NOMB.=Plur">milites</w>
+              <pc>:</pc>
+              <w xml:id="vgcTXKI" lemma="debeo" pos="VER" morph="MODE=Ind|NOMB.=Plur|PERS.=3|TEMPS=Pres">debent</w>
+              <w xml:id="sULCV7L" lemma="tamen" pos="ADV">tamen</w>
+              <w xml:id="ohhhmJK" lemma="miles" pos="NOMcom" morph="CAS=Voc|NOMB.=Plur">milites</w>
+              <w xml:id="ssFTQpg" lemma="sum" pos="VER" morph="MODE=Inf|TEMPS=Pres">esse</w>
+              <w xml:id="msddheO" lemma="magister" pos="NOMcom" morph="CAS=Nom|NOMB.=Plur">magistri</w>
+              <w xml:id="hsnakfW" lemma="bellum" pos="NOMcom" morph="CAS=Gen|NOMB.=Plur">bellorum</w>
+              <pc>,</pc>
+              <w xml:id="vc0FaC7" lemma="et" pos="CONcoo">et</w>
+              <w xml:id="m5LPAME" lemma="ordinator" pos="NOMcom" morph="CAS=Nom|NOMB.=Plur">ordinatores</w>
+              <w xml:id="nXeIZuB" lemma="alius" pos="PROind" morph="CAS=Gen|NOMB.=Plur">aliorum</w>
+              <w xml:id="lUaV6eU" lemma="in" pos="PRE">in</w>
+              <w xml:id="djsyuyp" lemma="bellum" pos="NOMcom" morph="CAS=Abl|NOMB.=Sing">bello</w>
+              <pc>:</pc>
+              <w xml:id="qsuWpid" lemma="ideo" pos="ADV">ideo</w>
+              <w xml:id="guVz1DJ" lemma="sub" pos="PRE">sub</w>
+              <w xml:id="gTOWUEf" lemma="militaris" pos="ADJqua" morph="CAS=Abl|NOMB.=Sing">militari</w>
+              <w xml:id="dxNmCRq" lemma="dico" pos="VER" morph="MODE=Ind|NOMB.=Sing|PERS.=3|TEMPS=Pres">dicitur</w>
+              <w xml:id="xniv7Tx" lemma="opus" pos="NOMcom" morph="CAS=Acc|NOMB.=Plur">opera</w>
+              <w xml:id="aJi5C0s" lemma="bellicus" pos="ADJqua" morph="CAS=Nom|NOMB.=Sing">bellica</w>
+              <w xml:id="xcqPcIo" lemma="contineo" pos="VER" morph="MODE=Inf|TEMPS=Pres">contineri</w>
+              <pc>.</pc>
+            </p>
+          </div>
+        </div>
+      </div>
+    </body>
+  </text>
+</TEI>
