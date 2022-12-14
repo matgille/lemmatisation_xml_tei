@@ -41,8 +41,20 @@ Les étiquettes de parties du discours sont les suivantes:
 - CATTEX pour le latin médiéval;
 - EAGLES pour le castillan médiéval. Attention, EAGLES propose un jeu d'étiquettes qui fusionne parties du discours et morphologie. 
 
+## Problèmes de tokénisation
 
+La tokénisation s'effectue en amont de la lemmatisation, avec un script *ad hoc*; cependant, en ce qui concerne les sources castillanes, le lemmatiseur Freeling retokénise les ordinaux composés (dos milliones > dos_millones), ce qui empêche une réinjection correcte par la suite. Il n'y a a priori pas de solution à cela, sauf à modifier le code de freeling. Une possibilité pour régler le problème est de nettoyer le corpus lemmatisé directement avec des expressions régulières: 
 
+- forme du type `un millón`:
+`\n([^_\s\n]*)_([^_\s\n]*) \d+ Zd \d+\n` remplacé par `\n\1 \1 Z\n\2 \2 Z\n` (attention, les expressions de substitution peuvent changer selon le logiciel)
+
+- formes du type `cuaranta y uno`: 
+`\n([^_\s\n]*)_y_([^_\s\n]*) \d+ Z \d+\n` remplacé par `\n\1 \1 Z\ny y CC\n\2 \2 Z\n`
+
+- formes du type `cien mil`:
+`\n\1 \1 Z\ny y CC\n\2 \2 Z\n` remplacé par  `\n\1 \1 Z\n\2 \2 Z`
+
+L'idéal est de tokéniser correctement ces formes en amont, mais le script ne peut le faire en l'état.
 ## Test
 Le script peut être testé à l'aide du fichier présent dans test/.
 
