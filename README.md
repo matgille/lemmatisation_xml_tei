@@ -52,7 +52,7 @@ La tokénisation s'effectue en amont de la lemmatisation, avec un script *ad hoc
 `\n([^_\s\n]*)_y_([^_\s\n]*) \d+ Z \d+\n` remplacé par `\n\1 \1 Z\ny y CC\n\2 \2 Z\n`
 
 - formes du type `cien mil`:
-`\n\1 \1 Z\ny y CC\n\2 \2 Z\n` remplacé par  `\n\1 \1 Z\n\2 \2 Z`
+`\n([^_\s\n]*)_([^_\s\n]*) \d+ Z \d+\n` remplacé par  `\n\1 \1 Z\n\2 \2 Z`
 
 L'idéal est de tokéniser correctement ces formes en amont, mais le script ne peut le faire en l'état.
 ## Test
